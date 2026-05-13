@@ -9,10 +9,8 @@
   <meta property="og:description" content="Email engineer based in Porto. I build and optimize email systems for lifecycle marketing." />
   <meta property="og:url" content="https://leonardt.eu" />
   <meta property="og:type" content="website" />
-  
   <title>Leonardt Lauenstein — Email Engineer</title>
-  
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨🏻‍💻</text></svg>">
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
@@ -106,18 +104,21 @@
     .hero { padding-top: 96px; padding-bottom: 96px; }
 
     .status {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 6px 12px;
+      display: inline-flex; align-items: flex-start; gap: 10px;
+      padding: 8px 14px;
       background: var(--accent-soft);
       color: var(--accent);
       border-radius: 999px;
       font-size: 13px;
       font-weight: 500;
       margin-bottom: 28px;
+      line-height: 1.45;
     }
     .status::before {
       content: "";
       width: 8px; height: 8px;
+      flex-shrink: 0;
+      margin-top: 0.4em;
       background: var(--accent);
       border-radius: 50%;
       animation: pulse 2s ease-in-out infinite;
