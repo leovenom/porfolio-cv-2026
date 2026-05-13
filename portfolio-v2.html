@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Leonardt Lauenstein — Email Engineer based in Porto, Portugal. I build and A/B test responsive email systems for lifecycle marketing. Currently at Prezi, previously Pier (+5M ad impressions)." />
+  <meta name="keywords" content="Email Engineer, Email Front-End Developer, Email Developer, Lifecycle Marketing, MJML, React Email, A/B Testing, HTML Email, Responsive Email, Porto, Portugal, Leonardt Lauenstein" />
+  <meta property="og:title" content="Leonardt Lauenstein — Email Engineer" />
+  <meta property="og:description" content="Email engineer based in Porto. I build and optimize email systems for lifecycle marketing." />
+  <meta property="og:url" content="https://leonardt.eu" />
+  <meta property="og:type" content="website" />
+  <title>Leonardt Lauenstein — Email Engineer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       Design tokens — editorial, recruiter-focused, fast.
+       ============================================================ */
+    :root {
+      --bg:        #faf8f3;
+      --bg-soft:   #f1ede4;
+      --ink:       #0c0c0c;
+      --ink-soft:  #2a2a2a;
+      --muted:     #6b6b6b;
+      --line:      #e3ddd0;
+      --accent:    #c2410c;       /* burnt terracotta */
+      --accent-soft:#fbe9dc;
+      --max:       880px;
+      --radius:    6px;
+      --serif:     "Instrument Serif", Georgia, serif;
+      --sans:      "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    ::selection { background: var(--accent); color: var(--bg); }
+
+    /* ============================================================
+       Layout
+       ============================================================ */
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section { padding: 88px 0; border-bottom: 1px solid var(--line); }
+    section:last-of-type { border-bottom: 0; }
+
+    @media (max-width: 640px) {
+      section { padding: 56px 0; }
+    }
+
+    /* ============================================================
+       Top bar
+       ============================================================ */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: saturate(160%) blur(10px);
+      -webkit-backdrop-filter: saturate(160%) blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 24px;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .brand {
+      font-family: var(--serif);
+      font-size: 20px;
+      letter-spacing: 0.01em;
+    }
+    .topbar-links { display: flex; gap: 22px; font-size: 14px; color: var(--ink-soft); }
+    .topbar-links a:hover { color: var(--accent); }
+    @media (max-width: 540px) {
+      .topbar-links { display: none; }
+    }
+
+    /* ============================================================
+       Hero
+       ============================================================ */
+    .hero { padding-top: 96px; padding-bottom: 96px; }
+
+    .status {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 12px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 28px;
+    }
+    .status::before {
+      content: "";
+      width: 8px; height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    h1.display {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(44px, 7vw, 76px);
+      line-height: 1.02;
+      letter-spacing: -0.01em;
+      margin: 0 0 24px;
+    }
+    h1.display em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-lede {
+      font-size: clamp(18px, 2.2vw, 22px);
+      color: var(--ink-soft);
+      max-width: 560px;
+      margin: 0 0 32px;
+      line-height: 1.5;
+    }
+
+    .hero-meta {
+      display: flex; flex-wrap: wrap; gap: 24px 40px;
+      margin-bottom: 36px;
+      font-size: 14px;
+    }
+    .hero-meta div { display: flex; flex-direction: column; gap: 2px; }
+    .hero-meta .label { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .hero-meta .value { color: var(--ink); font-weight: 500; }
+
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 18px;
+      border-radius: var(--radius);
+      font-size: 14px;
+      font-weight: 500;
+      transition: transform .15s ease, background .2s ease, color .2s ease;
+    }
+    .btn-primary {
+      background: var(--ink);
+      color: var(--bg);
+    }
+    .btn-primary:hover { background: var(--accent); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--line);
+    }
+    .btn-ghost:hover { border-color: var(--ink); }
+    .btn .arrow { transition: transform .2s ease; }
+    .btn:hover .arrow { transform: translateX(3px); }
+
+    /* ============================================================
+       Section heading
+       ============================================================ */
+    .section-head {
+      display: flex; align-items: baseline; justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .section-head h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(28px, 4vw, 40px);
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+    .section-head .ord {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ============================================================
+       Stack chips
+       ============================================================ */
+    .stack-groups { display: grid; gap: 28px; }
+    .stack-group .stack-label {
+      font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip {
+      padding: 7px 14px;
+      background: var(--bg-soft);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--ink-soft);
+      transition: background .2s ease, color .2s ease, border-color .2s ease;
+    }
+    .chip:hover {
+      background: var(--ink);
+      color: var(--bg);
+      border-color: var(--ink);
+      cursor: default;
+    }
+
+    /* ============================================================
+       Case studies
+       ============================================================ */
+    .cases { display: grid; gap: 56px; }
+    .case {
+      display: grid; gap: 28px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 760px) {
+      .case { grid-template-columns: 1.1fr 1fr; align-items: center; }
+      .case.reverse .case-media { order: 2; }
+    }
+    .case-media {
+      aspect-ratio: 16 / 10;
+      background: var(--bg-soft);
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .case-media img { width: 100%; height: 100%; object-fit: contain; display: block; transition: transform .6s ease; }
+    .case:hover .case-media img { transform: scale(1.03); }
+    .case-body .case-meta {
+      display: flex; gap: 16px;
+      font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .case-body h3 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(24px, 3vw, 32px);
+      letter-spacing: -0.01em;
+      margin: 0 0 16px;
+      line-height: 1.15;
+    }
+    .case-body p { color: var(--ink-soft); margin: 0 0 18px; }
+    .case-result {
+      display: inline-flex; align-items: baseline; gap: 10px;
+      padding: 10px 16px;
+      background: var(--accent-soft);
+      border-radius: var(--radius);
+      margin-top: 4px;
+    }
+    .case-result .num {
+      font-family: var(--serif);
+      font-size: 28px;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .case-result .what { font-size: 13px; color: var(--ink-soft); }
+    .case-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; font-size: 12px; color: var(--muted); }
+    .case-tags span:not(:last-child)::after { content: "·"; margin-left: 6px; color: var(--line); }
+    .case-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 20px;
+      font-size: 14px; font-weight: 500;
+      color: var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 2px;
+    }
+    .case-link:hover { color: var(--accent); border-color: var(--accent); }
+    .case-link .arrow { transition: transform .2s ease; }
+    .case-link:hover .arrow { transform: translate(3px, -3px); }
+
+    /* ============================================================
+       Experience timeline
+       ============================================================ */
+    .timeline { display: grid; gap: 0; }
+    .role {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 24px;
+      padding: 22px 0;
+      border-top: 1px solid var(--line);
+    }
+    .role:last-child { border-bottom: 1px solid var(--line); }
+    @media (max-width: 640px) {
+      .role { grid-template-columns: 1fr; gap: 6px; }
+    }
+    .role-when { color: var(--muted); font-size: 13px; font-variant-numeric: tabular-nums; }
+    .role-title { font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+    .role-org { color: var(--ink-soft); font-size: 14px; }
+    .role-org a { border-bottom: 1px dotted var(--muted); }
+    .role-org a:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ============================================================
+       Contact
+       ============================================================ */
+    .contact-grid {
+      display: grid; gap: 24px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 640px) {
+      .contact-grid { grid-template-columns: 1.4fr 1fr; align-items: end; }
+    }
+    .contact-lede {
+      font-family: var(--serif);
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.1;
+      margin: 0;
+    }
+    .contact-lede em { font-style: italic; color: var(--accent); }
+    .contact-links { display: grid; gap: 4px; font-size: 15px; }
+    .contact-links a {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--line);
+      width: fit-content;
+      transition: color .2s ease, border-color .2s ease;
+    }
+    .contact-links a:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ============================================================
+       Footer
+       ============================================================ */
+    footer {
+      padding: 32px 0 48px;
+      font-size: 13px;
+      color: var(--muted);
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    }
+
+    /* ============================================================
+       TODO marker styling (remove for production)
+       ============================================================ */
+    .todo {
+      display: inline-block;
+      padding: 2px 8px;
+      background: #fff3a3;
+      color: #5b4500;
+      border-radius: 3px;
+      font-size: 12px;
+      font-family: "SF Mono", Menlo, monospace;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============ Top bar ============ -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#top">Leonardt Lauenstein</a>
+      <nav class="topbar-links">
+        <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ Hero ============ -->
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div class="status">Happy at Prezi · Open to email engineering conversations</div>
+
+      <h1 class="display">
+        Email engineer<br />
+        automating the lifecycle<br />
+        pipeline with <em>AI.</em>
+      </h1>
+
+      <p class="hero-lede">
+        I'm Leonardt — email engineer with a design background.
+        At <strong>Prezi</strong>, my AI pipeline (Claude → Cursor → Braze) cut campaign production from <strong>hours to under 15 minutes</strong>.
+        Previously growth campaigns at <strong>Pier</strong> — +5M ad impressions in 7 days.
+      </p>
+
+      <div class="hero-meta">
+        <div>
+          <span class="label">Based in</span>
+          <span class="value">Porto, Portugal</span>
+        </div>
+        <div>
+          <span class="label">Work auth</span>
+          <span class="value">EU + Brazil</span>
+        </div>
+        <div>
+          <span class="label">Languages</span>
+          <span class="value">PT · EN · DE</span>
+        </div>
+        <div>
+          <span class="label">Experience</span>
+          <span class="value">7 years</span>
+        </div>
+      </div>
+
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="mailto:leonardt@outlook.com">
+          Get in touch <span class="arrow">→</span>
+        </a>
+        <a class="btn btn-ghost" href="#work">See selected work</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/leonardtlauenstein/" target="_blank" rel="noopener">
+          LinkedIn ↗
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Stack ============ -->
+  <section id="stack">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Stack</h2>
+        <span class="ord">01 — Tools</span>
+      </div>
+
+      <div class="stack-groups">
+        <div class="stack-group">
+          <div class="stack-label">Email engineering</div>
+          <div class="chips">
+            <span class="chip">HTML / CSS (hand-coded)</span>
+            <span class="chip">Liquid</span>
+            <span class="chip">Braze</span>
+            <span class="chip">Litmus</span>
+            <span class="chip">Cross-client QA (Gmail · Outlook · Apple Mail)</span>
+            <span class="chip">Accessibility</span>
+            <span class="chip">Dark mode</span>
+            <span class="chip">Responsive email</span>
+          </div>
+        </div>
+
+        <div class="stack-group">
+          <div class="stack-label">Optimization &amp; analytics</div>
+          <div class="chips">
+            <span class="chip">A/B testing</span>
+            <span class="chip">Hex</span>
+            <span class="chip">CTR / open-rate analysis</span>
+            <span class="chip">Conversion modeling</span>
+          </div>
+        </div>
+
+        <div class="stack-group">
+          <div class="stack-label">AI &amp; automation</div>
+          <div class="chips">
+            <span class="chip">Claude</span>
+            <span class="chip">Cursor</span>
+            <span class="chip">Node.js</span>
+            <span class="chip">JSON pipelines</span>
+            <span class="chip">Figma → Braze automation</span>
+            <span class="chip">Prompt engineering</span>
+          </div>
+        </div>
+
+        <div class="stack-group">
+          <div class="stack-label">Design &amp; web</div>
+          <div class="chips">
+            <span class="chip">Figma</span>
+            <span class="chip">Adobe Creative Cloud</span>
+            <span class="chip">React</span>
+            <span class="chip">TypeScript</span>
+            <span class="chip">Next.js</span>
+            <span class="chip">Notion</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Selected work ============ -->
+  <section id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Selected work</h2>
+        <span class="ord">02 — Three cases</span>
+      </div>
+
+      <div class="cases">
+
+        <!-- Case 01 — PREZI AI automation (the differentiator) -->
+        <article class="case">
+          <div class="case-media" style="background: linear-gradient(135deg, var(--accent-soft), var(--bg-soft)); display:flex; align-items:center; justify-content:center;">
+            <code style="font-family: 'SF Mono', Menlo, monospace; font-size: 13px; color: var(--ink-soft); padding: 32px; line-height: 1.7; text-align: left;">
+brief<br/>
+&nbsp;&nbsp;↓<br/>
+<span style="color: var(--accent);">Claude</span> → content<br/>
+&nbsp;&nbsp;↓<br/>
+<span style="color: var(--accent);">Cursor</span> → template<br/>
+&nbsp;&nbsp;↓<br/>
+<span style="color: var(--accent);">Braze</span> → campaign
+            </code>
+          </div>
+          <div class="case-body">
+            <div class="case-meta"><span>2024 — now</span><span>Prezi</span><span>AI automation</span></div>
+            <h3>Automating the email production pipeline with AI</h3>
+            <p>
+              Designed an end-to-end AI pipeline for lifecycle email production. <strong>Claude</strong>
+              generates the content from the brief; <strong>Cursor</strong> assembles and ships the
+              responsive templates (HTML/CSS + Liquid); <strong>Braze</strong> executes the
+              campaign. The handoff between steps is structured JSON, which makes the whole flow
+              versionable and reviewable instead of hand-authored every time. The same pipeline
+              feeds the A/B variants — subject-line and CTA tests running at <strong>3M+ sends
+              per arm</strong>, analysed in Hex.
+            </p>
+            <div class="case-result">
+              <span class="num">&lt;15 min</span>
+              <span class="what">per campaign — down from 3–8 hours</span>
+            </div>
+            <div class="case-tags">
+              <span>Claude</span><span>Cursor</span><span>Node</span><span>JSON</span><span>Braze</span><span>Liquid</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Case 02 — PIER × TINDER (the big-number story) -->
+        <article class="case reverse">
+          <div class="case-media">
+            <img src="https://leonardt-profile.netlify.app/assets/img/portfolio/pier+tinder.gif" alt="Pier x Tinder Carnival landing page — animated walkthrough" loading="lazy" />
+          </div>
+          <div class="case-body">
+            <div class="case-meta"><span>2023</span><span>Pier</span><span>Growth marketing</span></div>
+            <h3>Pier × Tinder — Carnival campaign</h3>
+            <p>
+              Co-marketing campaign between Pier (digital insurance) and Tinder for Brazilian
+              Carnival 2023. I led the visual system across the landing page, the Tinder swipe-card
+              ad creative, and the full ad rollout — bridging design and front-end build on a tight
+              co-marketing timeline.
+            </p>
+            <div class="case-result">
+              <span class="num">+5M</span>
+              <span class="what">ad impressions in 7 days</span>
+            </div>
+            <div class="case-tags">
+              <span>Landing page</span><span>Ad creative</span><span>Brand</span><span>Co-marketing</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Case 03 — PIER AI ads (early AI adoption) -->
+        <article class="case">
+          <div class="case-media">
+            <img src="https://leonardt-profile.netlify.app/assets/img/portfolio/auto-1.webp" alt="Pier Auto coverage AI-generated ads" loading="lazy" />
+          </div>
+          <div class="case-body">
+            <div class="case-meta"><span>2023</span><span>Pier</span><span>AI + growth</span></div>
+            <h3>AI-generated ad creatives — when AI was new</h3>
+            <p>
+              In early 2023 I started shipping production ad creatives using AI image generation,
+              embedded inside Pier's brand system. Auto-coverage and smartphone-insurance campaigns
+              that reached over a million impressions in a week — proof that I've been integrating
+              generative AI into real marketing output well before it was the trend.
+            </p>
+            <div class="case-result">
+              <span class="num">+1M</span>
+              <span class="what">impressions in 7 days · per campaign</span>
+            </div>
+            <div class="case-tags">
+              <span>AI image generation</span><span>Ad creative</span><span>Performance</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Experience ============ -->
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Experience</h2>
+        <span class="ord">03 — Path</span>
+      </div>
+
+      <div class="timeline">
+        <div class="role">
+          <div class="role-when">Jun 2024 — now</div>
+          <div>
+            <div class="role-title">Email Front-End Developer</div>
+            <div class="role-org">
+              <a href="https://prezi.com" target="_blank" rel="noopener">Prezi</a> — Remote · Building, testing &amp; automating lifecycle emails with AI
+            </div>
+          </div>
+        </div>
+
+        <div class="role">
+          <div class="role-when">Dec 2023 — Jun 2024</div>
+          <div>
+            <div class="role-title">Web Designer</div>
+            <div class="role-org">
+              <a href="https://www.hakkoda.io" target="_blank" rel="noopener">Hakkoda</a> — Remote · Front-end &amp; graphical solutions for growth
+            </div>
+          </div>
+        </div>
+
+        <div class="role">
+          <div class="role-when">2021 — 2023</div>
+          <div>
+            <div class="role-title">Full Stack Designer</div>
+            <div class="role-org">
+              <a href="https://www.pier.digital/" target="_blank" rel="noopener">Pier</a> — Brazil · Remote · Growth campaigns, landing pages &amp; ad creatives
+            </div>
+          </div>
+        </div>
+
+        <div class="role">
+          <div class="role-when">2020 — present</div>
+          <div>
+            <div class="role-title">Web Developer · Freelance</div>
+            <div class="role-org">Brazil · Portugal · Germany</div>
+          </div>
+        </div>
+
+        <div class="role">
+          <div class="role-when">2019 — 2020</div>
+          <div>
+            <div class="role-title">Operations Assistant &amp; Designer</div>
+            <div class="role-org">
+              <a href="https://snba.pt/" target="_blank" rel="noopener">SNBA</a> — Portugal
+            </div>
+          </div>
+        </div>
+
+        <div class="role">
+          <div class="role-when">2015 — 2020</div>
+          <div>
+            <div class="role-title">Artist Assistant</div>
+            <div class="role-org">Luiz Zerbini, Luiz Roque, Rodrigo Torres, Daniel Albuquerque &amp; others — Rio de Janeiro</div>
+          </div>
+        </div>
+
+        <div class="role">
+          <div class="role-when">2020</div>
+          <div>
+            <div class="role-title">Full-stack Coding Bootcamp</div>
+            <div class="role-org">
+              <a href="https://www.lewagon.com/web-development-course/full-time" target="_blank" rel="noopener">Le Wagon</a> — Lisbon
+            </div>
+          </div>
+        </div>
+
+        <div class="role">
+          <div class="role-when">2007 — 2010</div>
+          <div>
+            <div class="role-title">BA in Industrial Design</div>
+            <div class="role-org">UniverCidade — Rio de Janeiro, Brazil</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Contact ============ -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <span class="ord">04 — Say hi</span>
+      </div>
+
+      <div class="contact-grid">
+        <p class="contact-lede">
+          Need an <em>email engineer</em> who codes, tests, and automates the whole pipeline? Let's talk.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:leonardt@outlook.com">leonardt@outlook.com →</a>
+          <a href="https://www.linkedin.com/in/leonardtlauenstein/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="https://github.com/leovenom/" target="_blank" rel="noopener">GitHub ↗</a>
+          <a href="CV_Leonardt_2026.pdf" target="_blank" rel="noopener">
+            Download CV (PDF) ↓
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="wrap">
+    <span>© <span id="year">2026</span> Leonardt Lauenstein</span>
+    <span>Built with restraint · No 3D, no shadcn, no Bootstrap</span>
+  </footer>
+
+  <script>
+    // Auto-update the copyright year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Tiny progressive enhancement: underline-on-scroll for nav links
+    const navLinks = document.querySelectorAll('.topbar-links a');
+    const sections = ['work', 'experience', 'contact'].map(id => document.getElementById(id)).filter(Boolean);
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach(a => a.style.color = a.getAttribute('href') === '#' + id ? 'var(--accent)' : '');
+        }
+      });
+    }, { rootMargin: '-50% 0px -50% 0px' });
+    sections.forEach(s => io.observe(s));
+  </script>
+</body>
+</html>

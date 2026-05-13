@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leonardt Lauenstein — CV 2026</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg:      #faf8f3;
+      --paper:   #ffffff;
+      --ink:     #0c0c0c;
+      --ink-soft:#2a2a2a;
+      --muted:   #6b6b6b;
+      --line:    #e3ddd0;
+      --accent:  #c2410c;
+      --serif:   "Instrument Serif", Georgia, serif;
+      --sans:    "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 14px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      padding: 32px 0;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      background: var(--paper);
+      margin: 0 auto;
+      padding: 12mm 14mm;
+      box-shadow: 0 2px 24px rgba(0,0,0,0.08);
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      column-gap: 12mm;
+      row-gap: 4mm;
+    }
+
+    /* ============ Header ============ */
+    header {
+      grid-column: 1 / -1;
+      padding-bottom: 4mm;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 4mm;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .name {
+      font-family: var(--serif);
+      font-size: 38px;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      font-weight: 400;
+      margin: 0 0 4px;
+    }
+    .role-line {
+      font-size: 13px;
+      color: var(--ink-soft);
+    }
+    .role-line strong { color: var(--ink); }
+    .role-line em { color: var(--accent); font-style: italic; font-family: var(--serif); font-size: 15px; }
+
+    .contact-block {
+      text-align: right;
+      font-size: 12px;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+    .contact-block a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px dotted var(--muted); }
+    .contact-block a:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ============ Section headings ============ */
+    h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 18px;
+      letter-spacing: 0.01em;
+      margin: 0 0 8px;
+      color: var(--ink);
+    }
+    h2 .ord {
+      font-family: var(--sans);
+      font-size: 10px;
+      color: var(--muted);
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    section { margin-bottom: 5mm; }
+    section:last-child { margin-bottom: 0; }
+
+    /* ============ Lede ============ */
+    .lede {
+      font-family: var(--serif);
+      font-size: 16px;
+      line-height: 1.3;
+      color: var(--ink);
+      margin: 0;
+      grid-column: 1 / -1;
+      margin-bottom: 2mm;
+    }
+    .lede em { color: var(--accent); font-style: italic; }
+
+    /* ============ Experience ============ */
+    .role {
+      margin-bottom: 3.5mm;
+      padding-bottom: 3.5mm;
+      border-bottom: 1px dotted var(--line);
+    }
+    .role:last-child { border-bottom: 0; padding-bottom: 0; margin-bottom: 0; }
+
+    .role-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 2px;
+    }
+    .role-title { font-weight: 600; font-size: 13.5px; color: var(--ink); }
+    .role-company { color: var(--ink-soft); font-size: 12.5px; }
+    .role-when { color: var(--muted); font-size: 11.5px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .role-desc { color: var(--ink-soft); font-size: 12px; line-height: 1.45; margin: 3px 0 0; }
+    .role-desc ul { margin: 3px 0 0; padding-left: 14px; }
+    .role-desc li { margin-bottom: 1px; }
+
+    .metric {
+      display: inline-block;
+      padding: 1px 6px;
+      background: #fbe9dc;
+      color: var(--accent);
+      border-radius: 3px;
+      font-weight: 600;
+      font-size: 12px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ============ Sidebar ============ */
+    aside .skills-group { margin-bottom: 3mm; }
+    aside .skills-label {
+      font-size: 9.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+    aside .skills-list {
+      font-size: 11.5px;
+      color: var(--ink-soft);
+      line-height: 1.45;
+    }
+
+    aside .edu-item, aside .lang-item {
+      font-size: 11.5px;
+      color: var(--ink-soft);
+      margin-bottom: 5px;
+    }
+    aside .edu-title, aside .lang-title { color: var(--ink); font-weight: 500; }
+    aside .edu-when { color: var(--muted); font-size: 10.5px; display: block; }
+
+    /* ============ Print ============ */
+    @media print {
+      body { background: white; padding: 0; }
+      html, body { height: auto; }
+      .page {
+        box-shadow: none;
+        width: 210mm;
+        height: 297mm;
+        min-height: 0;
+        max-height: 297mm;
+        margin: 0;
+        padding: 10mm 14mm 22mm 14mm;
+        overflow: hidden;
+        page-break-after: avoid;
+        page-break-inside: avoid;
+        break-after: avoid;
+        break-inside: avoid;
+      }
+      @page { size: A4; margin: 0; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page">
+
+    <!-- ============ Header ============ -->
+    <header>
+      <div>
+        <h1 class="name">Leonardt Lauenstein</h1>
+        <div class="role-line">
+          <em>Email Engineer</em> · Front-end Developer · Design Background
+        </div>
+      </div>
+      <div class="contact-block">
+        Porto, Portugal · PT/EN/DE<br />
+        +351 930 535 828<br />
+        <a href="mailto:leonardt@outlook.com">leonardt@outlook.com</a><br />
+        <a href="https://leonardt.eu">leonardt.eu</a> · <a href="https://www.linkedin.com/in/leonardtlauenstein/">LinkedIn</a> · <a href="https://github.com/leovenom">GitHub</a>
+      </div>
+    </header>
+
+    <!-- ============ Lede (spans both columns) ============ -->
+    <p class="lede">
+      Email engineer with 7 years bridging design and front-end. I build, test
+      and now <em>automate</em> responsive email systems for lifecycle marketing —
+      currently turning a manual production cycle into an AI pipeline at Prezi.
+    </p>
+
+    <!-- ============ Main column: Experience ============ -->
+    <main>
+
+      <section>
+        <h2>Experience <span class="ord">— 01</span></h2>
+
+        <div class="role">
+          <div class="role-head">
+            <div>
+              <span class="role-title">Email Front-End Developer</span>
+              <span class="role-company">· Prezi · Remote</span>
+            </div>
+            <span class="role-when">Jun 2024 — now</span>
+          </div>
+          <div class="role-desc">
+            <ul>
+              <li>Built an end-to-end AI pipeline — <span class="metric">Claude</span> generates content, <span class="metric">Cursor</span> ships templates, <span class="metric">Braze</span> executes — cutting campaign production from <span class="metric">3–8h</span> to <span class="metric">&lt;15min</span>.</li>
+              <li>Hand-coded responsive email templates in HTML/CSS + Liquid for lifecycle campaigns running in Braze.</li>
+              <li>QA across Gmail, Outlook, Apple Mail and other major clients via Litmus; accessibility checks; performance tracked in Hex.</li>
+              <li>Run subject-line &amp; CTA A/B tests at <span class="metric">3M+</span> sends per arm; analysis in Hex feeding lifecycle iteration.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="role">
+          <div class="role-head">
+            <div>
+              <span class="role-title">Web Designer</span>
+              <span class="role-company">· Hakkoda · Remote</span>
+            </div>
+            <span class="role-when">Dec 2023 — Jun 2024</span>
+          </div>
+          <div class="role-desc">
+            Six-month role: web design and front-end for the marketing site, presentations and reports. Stack: WordPress, Figma, HubSpot.
+          </div>
+        </div>
+
+        <div class="role">
+          <div class="role-head">
+            <div>
+              <span class="role-title">Front-end · Designer</span>
+              <span class="role-company">· Pier · Remote (Brazil)</span>
+            </div>
+            <span class="role-when">2021 — 2023</span>
+          </div>
+          <div class="role-desc">
+            <ul>
+              <li>Pier × Tinder Carnival co-marketing campaign — <span class="metric">+5M</span> ad impressions in 7 days (landing page, ad creative, brand system).</li>
+              <li>Shipped AI-generated ad creatives for auto-insurance and smartphone campaigns — <span class="metric">+1M</span> impressions/week per campaign.</li>
+              <li>Built landing pages in React + Dato CMS aligned to quarterly OKRs, plus email templates and ad creatives across acquisition channels.</li>
+              <li>Worked alongside content, eng and PMs in a fast-moving acquisition team.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="role">
+          <div class="role-head">
+            <div>
+              <span class="role-title">Web Developer · Freelance</span>
+              <span class="role-company">· Brazil, Portugal, Germany</span>
+            </div>
+            <span class="role-when">2020 — present</span>
+          </div>
+          <div class="role-desc">
+            End-to-end web projects from design to deployment for international clients. React, Next.js, Node, WordPress.
+          </div>
+        </div>
+
+        <div class="role">
+          <div class="role-head">
+            <div>
+              <span class="role-title">Designer &amp; Operations Assistant</span>
+              <span class="role-company">· SNBA</span>
+            </div>
+            <span class="role-when">2019 — 2020</span>
+          </div>
+          <div class="role-desc">
+            Visitor experience, exhibit installation and graphic materials for the Sociedade Nacional de Belas-Artes.
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- ============ Sidebar ============ -->
+    <aside>
+
+      <section>
+        <h2>Stack <span class="ord">— 02</span></h2>
+
+        <div class="skills-group">
+          <div class="skills-label">Email engineering</div>
+          <div class="skills-list">HTML/CSS · Liquid · Braze · Litmus · Responsive · Dark-mode · Cross-client QA (Gmail, Outlook, Apple Mail) · Accessibility</div>
+        </div>
+
+        <div class="skills-group">
+          <div class="skills-label">AI &amp; automation</div>
+          <div class="skills-list">Claude · Cursor · Node.js · JSON pipelines · Prompt engineering · Figma → Braze</div>
+        </div>
+
+        <div class="skills-group">
+          <div class="skills-label">Optimization</div>
+          <div class="skills-list">A/B testing (subject lines, CTAs) · Hex · CTR &amp; open-rate analysis</div>
+        </div>
+
+        <div class="skills-group">
+          <div class="skills-label">Design</div>
+          <div class="skills-list">Figma · Adobe Creative Cloud · Design systems · Brand · Motion</div>
+        </div>
+
+        <div class="skills-group">
+          <div class="skills-label">Web</div>
+          <div class="skills-list">React · TypeScript · Next.js · Node.js · Tailwind · WordPress · DatoCMS</div>
+        </div>
+
+        <div class="skills-group">
+          <div class="skills-label">Tools</div>
+          <div class="skills-list">Notion · Jira · Elementor Pro</div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Education <span class="ord">— 03</span></h2>
+
+        <div class="edu-item">
+          <div class="edu-title">Full-stack Coding Bootcamp</div>
+          Le Wagon — Lisbon
+          <span class="edu-when">March 2020</span>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-title">B.A. Industrial Design</div>
+          UniverCidade — Rio de Janeiro
+          <span class="edu-when">2007 — 2010</span>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-title">The Web Developer Bootcamp</div>
+          Udemy
+          <span class="edu-when">2019</span>
+        </div>
+      </section>
+
+      <section>
+        <h2>Languages <span class="ord">— 04</span></h2>
+
+        <div class="skills-list">
+          <strong style="color:var(--ink)">Portuguese</strong> native · <strong style="color:var(--ink)">English</strong> advanced · <strong style="color:var(--ink)">German</strong> intermediate
+        </div>
+      </section>
+
+    </aside>
+
+  </div>
+
+</body>
+</html>
