@@ -28,7 +28,7 @@
       --line:      #e3ddd0;
       --accent:    #c2410c;       /* burnt terracotta */
       --accent-soft:#fbe9dc;
-      --max:       880px;
+      --max:       1080px;
       --radius:    6px;
       --serif:     "Instrument Serif", Georgia, serif;
       --sans:      "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
@@ -43,8 +43,8 @@
       background: var(--bg);
       color: var(--ink);
       font-family: var(--sans);
-      font-size: 16px;
-      line-height: 1.6;
+      font-size: clamp(16px, 0.45vw + 14.5px, 18px);
+      line-height: 1.65;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
@@ -139,9 +139,9 @@
     }
 
     .hero-lede {
-      font-size: clamp(18px, 2.2vw, 22px);
+      font-size: clamp(19px, 2.4vw, 24px);
       color: var(--ink-soft);
-      max-width: 560px;
+      max-width: 680px;
       margin: 0 0 32px;
       line-height: 1.5;
     }
@@ -697,7 +697,7 @@ brief<br/>
 
   <footer class="wrap">
     <span>© <span id="year">2026</span> Leonardt Lauenstein</span>
-    <span>Built with restraint · No 3D, no shadcn, no Bootstrap</span>
+    <span>Designed, coded and shipped from Porto · obrigado pela visita</span>
   </footer>
 
   <script>
