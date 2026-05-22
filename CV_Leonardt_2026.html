@@ -109,8 +109,9 @@
     /* ============ Lede ============ */
     .lede {
       font-family: var(--serif);
-      font-size: 16px;
-      line-height: 1.3;
+      font-size: 18px;
+      line-height: 1.35;
+      letter-spacing: 0.01em;
       color: var(--ink);
       margin: 0;
       grid-column: 1 / -1;
@@ -134,7 +135,7 @@
       margin-bottom: 2px;
     }
     .role-title { font-weight: 600; font-size: 13.5px; color: var(--ink); }
-    .role-company { color: var(--ink-soft); font-size: 12.5px; }
+    .role-company { display: block; color: var(--ink-soft); font-size: 12.5px; margin-top: 2px; }
     .role-when { color: var(--muted); font-size: 11.5px; font-variant-numeric: tabular-nums; white-space: nowrap; }
     .role-desc { color: var(--ink-soft); font-size: 12px; line-height: 1.45; margin: 3px 0 0; }
     .role-desc ul { margin: 3px 0 0; padding-left: 14px; }
@@ -210,10 +211,9 @@
         </div>
       </div>
       <div class="contact-block">
-        Porto, Portugal · PT/EN/DE<br />
-        +351 930 535 828<br />
+        Portugal · PT/EN/DE<br />
         <a href="mailto:leonardt@outlook.com">leonardt@outlook.com</a><br />
-        <a href="https://leonardt.eu">leonardt.eu</a> · <a href="https://www.linkedin.com/in/leonardtlauenstein/">LinkedIn</a> · <a href="https://github.com/leovenom">GitHub</a>
+        <a href="https://porfolio-cv-2026.vercel.app/">leonardt.eu</a> · <a href="https://www.linkedin.com/in/leonardtlauenstein/">LinkedIn</a> · <a href="https://github.com/leovenom">GitHub</a>
       </div>
     </header>
 
@@ -234,16 +234,16 @@
           <div class="role-head">
             <div>
               <span class="role-title">Email Front-End Developer</span>
-              <span class="role-company">· Prezi · Remote</span>
+              <span class="role-company">Prezi · Remote, Portugal</span>
             </div>
             <span class="role-when">Jun 2024 — now</span>
           </div>
           <div class="role-desc">
             <ul>
-              <li>Built an end-to-end AI pipeline — <span class="metric">Claude</span> generates content, <span class="metric">Cursor</span> ships templates, <span class="metric">Braze</span> executes — cutting campaign production from <span class="metric">3–8h</span> to <span class="metric">&lt;15min</span>.</li>
-              <li>Hand-coded responsive email templates in HTML/CSS + Liquid for lifecycle campaigns running in Braze.</li>
+              <li>Designed and built an end-to-end AI pipeline — <span class="metric">Claude</span> generates content, <span class="metric">Cursor</span> assembles templates, <span class="metric">Braze</span> executes — cutting campaign production from <span class="metric">3–8h</span> to <span class="metric">&lt;15min</span>.</li>
+              <li>Hand-coded responsive email templates (HTML/CSS + Liquid) and in-app messages (HTML/CSS + JavaScript) for lifecycle campaigns running in Braze.</li>
               <li>QA across Gmail, Outlook, Apple Mail and other major clients via Litmus; accessibility checks; performance tracked in Hex.</li>
-              <li>Run subject-line &amp; CTA A/B tests at <span class="metric">3M+</span> sends per arm; analysis in Hex feeding lifecycle iteration.</li>
+              <li>Run subject-line &amp; CTA A/B tests at <span class="metric">3M+</span> sends per arm; winners analysed in Hex and shipped to the rolling lifecycle.</li>
             </ul>
           </div>
         </div>
@@ -252,7 +252,7 @@
           <div class="role-head">
             <div>
               <span class="role-title">Web Designer</span>
-              <span class="role-company">· Hakkoda · Remote</span>
+              <span class="role-company">Hakkoda · Remote, Portugal</span>
             </div>
             <span class="role-when">Dec 2023 — Jun 2024</span>
           </div>
@@ -265,7 +265,7 @@
           <div class="role-head">
             <div>
               <span class="role-title">Front-end · Designer</span>
-              <span class="role-company">· Pier · Remote (Brazil)</span>
+              <span class="role-company">Pier · Remote, Brazil</span>
             </div>
             <span class="role-when">2021 — 2023</span>
           </div>
@@ -273,7 +273,7 @@
             <ul>
               <li>Pier × Tinder Carnival co-marketing campaign — <span class="metric">+5M</span> ad impressions in 7 days (landing page, ad creative, brand system).</li>
               <li>Shipped AI-generated ad creatives for auto-insurance and smartphone campaigns — <span class="metric">+1M</span> impressions/week per campaign.</li>
-              <li>Built landing pages in React + Dato CMS aligned to quarterly OKRs, plus email templates and ad creatives across acquisition channels.</li>
+              <li>Built landing pages in React + DatoCMS aligned to quarterly OKRs, plus email templates and ad creatives across acquisition channels.</li>
               <li>Worked alongside content, eng and PMs in a fast-moving acquisition team.</li>
             </ul>
           </div>
@@ -283,25 +283,12 @@
           <div class="role-head">
             <div>
               <span class="role-title">Web Developer · Freelance</span>
-              <span class="role-company">· Brazil, Portugal, Germany</span>
+              <span class="role-company">Brazil, Portugal, Germany</span>
             </div>
             <span class="role-when">2020 — present</span>
           </div>
           <div class="role-desc">
             End-to-end web projects from design to deployment for international clients. React, Next.js, Node, WordPress.
-          </div>
-        </div>
-
-        <div class="role">
-          <div class="role-head">
-            <div>
-              <span class="role-title">Designer &amp; Operations Assistant</span>
-              <span class="role-company">· SNBA</span>
-            </div>
-            <span class="role-when">2019 — 2020</span>
-          </div>
-          <div class="role-desc">
-            Visitor experience, exhibit installation and graphic materials for the Sociedade Nacional de Belas-Artes.
           </div>
         </div>
 
@@ -316,8 +303,8 @@
         <h2>Stack <span class="ord">— 02</span></h2>
 
         <div class="skills-group">
-          <div class="skills-label">Email engineering</div>
-          <div class="skills-list">HTML/CSS · Liquid · Braze · Litmus · Responsive · Dark-mode · Cross-client QA (Gmail, Outlook, Apple Mail) · Accessibility</div>
+          <div class="skills-label">Email &amp; in-app engineering</div>
+          <div class="skills-list">HTML/CSS · JavaScript · Liquid · Braze (CRM) · In-app messaging · Litmus · Mobile-first rendering · Dark mode · VML for Outlook · Dynamic content blocks · Cross-client QA (Gmail, Outlook, Apple Mail) · Accessibility</div>
         </div>
 
         <div class="skills-group">
@@ -372,7 +359,9 @@
         <h2>Languages <span class="ord">— 04</span></h2>
 
         <div class="skills-list">
-          <strong style="color:var(--ink)">Portuguese</strong> native · <strong style="color:var(--ink)">English</strong> advanced · <strong style="color:var(--ink)">German</strong> intermediate
+          <div><strong style="color:var(--ink)">Portuguese</strong> native</div>
+          <div><strong style="color:var(--ink)">English</strong> advanced</div>
+          <div><strong style="color:var(--ink)">German</strong> intermediate</div>
         </div>
       </section>
 
