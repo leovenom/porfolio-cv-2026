@@ -3,22 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Leonardt Lauenstein — Email Engineer based in Portugal. I build and A/B test responsive email systems for lifecycle marketing. Currently at Prezi, previously Pier (+5M ad impressions)." />
-  <meta name="keywords" content="Email Engineer, Email Front-End Developer, Email Developer, Lifecycle Marketing, MJML, React Email, A/B Testing, HTML Email, Responsive Email, Portugal, Leonardt Lauenstein" />
-  <meta property="og:title" content="Leonardt Lauenstein — Email Engineer" />
-  <meta property="og:description" content="Email engineer based in Portugal. I build and optimize email systems for lifecycle marketing." />
-  <meta property="og:url" content="https://leonardt.eu" />
+  <meta name="description" content="Leonardt Lauenstein — Design Engineer based in Portugal. I bridge Figma to React — building product UIs, design systems and lifecycle messaging, shipped to production. Most recently at Prezi, previously Pier." />
+  <meta name="keywords" content="Design Engineer, Product Engineer, Front-end Developer, React, Next.js, TypeScript, Figma, Design Systems, Component Architecture, Portugal, Leonardt Lauenstein" />
+  <meta property="og:title" content="Leonardt Lauenstein — Design Engineer" />
+  <meta property="og:description" content="Design engineer based in Portugal. I bridge Figma to React — building product UIs from design to production." />
+  <meta property="og:url" content="https://porfolio-cv-2026.vercel.app/design" />
   <meta property="og:type" content="website" />
-  <title>Leonardt Lauenstein — Email Engineer</title>
+  <title>Leonardt Lauenstein — Design Engineer</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
 
   <style>
-    /* ============================================================
-       Design tokens — editorial, recruiter-focused, fast.
-       ============================================================ */
     :root {
       --bg:        #faf8f3;
       --bg-soft:   #f1ede4;
@@ -26,7 +23,7 @@
       --ink-soft:  #2a2a2a;
       --muted:     #6b6b6b;
       --line:      #e3ddd0;
-      --accent:    #c2410c;       /* burnt terracotta */
+      --accent:    #c2410c;
       --accent-soft:#fbe9dc;
       --max:       1080px;
       --radius:    6px;
@@ -35,7 +32,6 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -50,32 +46,16 @@
     }
 
     a { color: inherit; text-decoration: none; }
-
     ::selection { background: var(--accent); color: var(--bg); }
 
-    /* ============================================================
-       Layout
-       ============================================================ */
-    .wrap {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
     section { padding: 88px 0; border-bottom: 1px solid var(--line); }
     section:last-of-type { border-bottom: 0; }
+    @media (max-width: 640px) { section { padding: 56px 0; } }
 
-    @media (max-width: 640px) {
-      section { padding: 56px 0; }
-    }
-
-    /* ============================================================
-       Top bar
-       ============================================================ */
+    /* Top bar */
     .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      position: sticky; top: 0; z-index: 10;
       background: color-mix(in srgb, var(--bg) 88%, transparent);
       backdrop-filter: saturate(160%) blur(10px);
       -webkit-backdrop-filter: saturate(160%) blur(10px);
@@ -83,64 +63,42 @@
     }
     .topbar-inner {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 14px 24px;
-      max-width: var(--max);
-      margin: 0 auto;
+      padding: 14px 24px; max-width: var(--max); margin: 0 auto;
     }
-    .brand {
-      font-family: var(--serif);
-      font-size: 20px;
-      letter-spacing: 0.01em;
-    }
+    .brand { font-family: var(--serif); font-size: 20px; letter-spacing: 0.01em; }
     .topbar-links { display: flex; gap: 22px; font-size: 14px; color: var(--ink-soft); }
     .topbar-links a:hover { color: var(--accent); }
-    @media (max-width: 540px) {
-      .topbar-links { display: none; }
-    }
+    @media (max-width: 540px) { .topbar-links { display: none; } }
 
-    /* ============================================================
-       Hero
-       ============================================================ */
+    /* Hero */
     .hero { padding-top: 96px; padding-bottom: 96px; }
-
     .status {
       display: inline-flex; align-items: flex-start; gap: 10px;
       padding: 8px 14px;
       background: var(--accent-soft);
       color: var(--accent);
       border-radius: 999px;
-      font-size: 13px;
-      font-weight: 500;
+      font-size: 13px; font-weight: 500;
       margin-bottom: 28px;
       line-height: 1.45;
     }
     .status::before {
-      content: "";
-      width: 8px; height: 8px;
-      flex-shrink: 0;
-      margin-top: 0.4em;
-      background: var(--accent);
-      border-radius: 50%;
+      content: ""; width: 8px; height: 8px;
+      flex-shrink: 0; margin-top: 0.4em;
+      background: var(--accent); border-radius: 50%;
       animation: pulse 2s ease-in-out infinite;
     }
     @keyframes pulse {
       0%, 100% { opacity: 1; transform: scale(1); }
       50%      { opacity: 0.4; transform: scale(0.85); }
     }
-
     h1.display {
-      font-family: var(--serif);
-      font-weight: 400;
+      font-family: var(--serif); font-weight: 400;
       font-size: clamp(44px, 7vw, 76px);
-      line-height: 1.02;
-      letter-spacing: -0.01em;
+      line-height: 1.02; letter-spacing: -0.01em;
       margin: 0 0 24px;
     }
-    h1.display em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
+    h1.display em { font-style: italic; color: var(--accent); }
     .hero-lede {
       font-size: clamp(19px, 2.4vw, 24px);
       color: var(--ink-soft);
@@ -148,69 +106,48 @@
       margin: 0 0 32px;
       line-height: 1.5;
     }
-
     .hero-meta {
       display: flex; flex-wrap: wrap; gap: 24px 40px;
-      margin-bottom: 36px;
-      font-size: 14px;
+      margin-bottom: 36px; font-size: 14px;
     }
     .hero-meta div { display: flex; flex-direction: column; gap: 2px; }
     .hero-meta .label { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; }
     .hero-meta .value { color: var(--ink); font-weight: 500; }
-
     .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
     .btn {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 11px 18px;
       border-radius: var(--radius);
-      font-size: 14px;
-      font-weight: 500;
+      font-size: 14px; font-weight: 500;
       transition: transform .15s ease, background .2s ease, color .2s ease;
     }
-    .btn-primary {
-      background: var(--ink);
-      color: var(--bg);
-    }
+    .btn-primary { background: var(--ink); color: var(--bg); }
     .btn-primary:hover { background: var(--accent); }
-    .btn-ghost {
-      background: transparent;
-      color: var(--ink);
-      border: 1px solid var(--line);
-    }
+    .btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
     .btn-ghost:hover { border-color: var(--ink); }
     .btn .arrow { transition: transform .2s ease; }
     .btn:hover .arrow { transform: translateX(3px); }
 
-    /* ============================================================
-       Section heading
-       ============================================================ */
+    /* Section heading */
     .section-head {
       display: flex; align-items: baseline; justify-content: space-between;
-      gap: 24px;
-      margin-bottom: 40px;
+      gap: 24px; margin-bottom: 40px;
     }
     .section-head h2 {
-      font-family: var(--serif);
-      font-weight: 400;
+      font-family: var(--serif); font-weight: 400;
       font-size: clamp(28px, 4vw, 40px);
-      letter-spacing: -0.01em;
-      margin: 0;
+      letter-spacing: -0.01em; margin: 0;
     }
     .section-head .ord {
-      font-size: 12px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
+      font-size: 12px; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--muted);
     }
 
-    /* ============================================================
-       Stack chips
-       ============================================================ */
+    /* Stack */
     .stack-groups { display: grid; gap: 28px; }
     .stack-group .stack-label {
       font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em;
-      color: var(--muted);
-      margin-bottom: 12px;
+      color: var(--muted); margin-bottom: 12px;
     }
     .chips { display: flex; flex-wrap: wrap; gap: 8px; }
     .chip {
@@ -229,14 +166,9 @@
       cursor: default;
     }
 
-    /* ============================================================
-       Case studies
-       ============================================================ */
+    /* Cases */
     .cases { display: grid; gap: 56px; }
-    .case {
-      display: grid; gap: 28px;
-      grid-template-columns: 1fr;
-    }
+    .case { display: grid; gap: 28px; grid-template-columns: 1fr; }
     @media (min-width: 760px) {
       .case { grid-template-columns: 1.1fr 1fr; align-items: center; }
       .case.reverse .case-media { order: 2; }
@@ -245,12 +177,9 @@
       aspect-ratio: 16 / 10;
       background: var(--bg-soft);
       border-radius: var(--radius);
-      overflow: hidden;
-      position: relative;
+      overflow: hidden; position: relative;
       border: 1px solid var(--line);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
     }
     .case-media img { width: 100%; height: 100%; object-fit: contain; display: block; transition: transform .6s ease; }
     .case:hover .case-media img { transform: scale(1.03); }
@@ -260,11 +189,9 @@
       margin-bottom: 12px;
     }
     .case-body h3 {
-      font-family: var(--serif);
-      font-weight: 400;
+      font-family: var(--serif); font-weight: 400;
       font-size: clamp(24px, 3vw, 32px);
-      letter-spacing: -0.01em;
-      margin: 0 0 16px;
+      letter-spacing: -0.01em; margin: 0 0 16px;
       line-height: 1.15;
     }
     .case-body p { color: var(--ink-soft); margin: 0 0 18px; }
@@ -275,36 +202,16 @@
       border-radius: var(--radius);
       margin-top: 4px;
     }
-    .case-result .num {
-      font-family: var(--serif);
-      font-size: 28px;
-      color: var(--accent);
-      line-height: 1;
-    }
+    .case-result .num { font-family: var(--serif); font-size: 28px; color: var(--accent); line-height: 1; }
     .case-result .what { font-size: 13px; color: var(--ink-soft); }
     .case-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; font-size: 12px; color: var(--muted); }
     .case-tags span:not(:last-child)::after { content: "·"; margin-left: 6px; color: var(--line); }
-    .case-link {
-      display: inline-flex; align-items: center; gap: 6px;
-      margin-top: 20px;
-      font-size: 14px; font-weight: 500;
-      color: var(--ink);
-      border-bottom: 1px solid var(--ink);
-      padding-bottom: 2px;
-    }
-    .case-link:hover { color: var(--accent); border-color: var(--accent); }
-    .case-link .arrow { transition: transform .2s ease; }
-    .case-link:hover .arrow { transform: translate(3px, -3px); }
 
-    /* ============================================================
-       Experience timeline
-       ============================================================ */
+    /* Experience */
     .timeline { display: grid; gap: 0; }
     .role {
-      display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 24px;
-      padding: 22px 0;
+      display: grid; grid-template-columns: 140px 1fr;
+      gap: 24px; padding: 22px 0;
       border-top: 1px solid var(--line);
     }
     .role:last-child { border-bottom: 1px solid var(--line); }
@@ -317,21 +224,13 @@
     .role-org a { border-bottom: 1px dotted var(--muted); }
     .role-org a:hover { color: var(--accent); border-color: var(--accent); }
 
-    /* ============================================================
-       Contact
-       ============================================================ */
-    .contact-grid {
-      display: grid; gap: 24px;
-      grid-template-columns: 1fr;
-    }
-    @media (min-width: 640px) {
-      .contact-grid { grid-template-columns: 1.4fr 1fr; align-items: end; }
-    }
+    /* Contact */
+    .contact-grid { display: grid; gap: 24px; grid-template-columns: 1fr; }
+    @media (min-width: 640px) { .contact-grid { grid-template-columns: 1.4fr 1fr; align-items: end; } }
     .contact-lede {
       font-family: var(--serif);
       font-size: clamp(28px, 4vw, 44px);
-      line-height: 1.1;
-      margin: 0;
+      line-height: 1.1; margin: 0;
     }
     .contact-lede em { font-style: italic; color: var(--accent); }
     .contact-links { display: grid; gap: 4px; font-size: 15px; }
@@ -344,34 +243,17 @@
     }
     .contact-links a:hover { color: var(--accent); border-color: var(--accent); }
 
-    /* ============================================================
-       Footer
-       ============================================================ */
     footer {
       padding: 32px 0 48px;
-      font-size: 13px;
-      color: var(--muted);
+      font-size: 13px; color: var(--muted);
       display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
-    }
-
-    /* ============================================================
-       TODO marker styling (remove for production)
-       ============================================================ */
-    .todo {
-      display: inline-block;
-      padding: 2px 8px;
-      background: #fff3a3;
-      color: #5b4500;
-      border-radius: 3px;
-      font-size: 12px;
-      font-family: "SF Mono", Menlo, monospace;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- ============ Top bar ============ -->
+  <!-- Top bar -->
   <header class="topbar">
     <div class="topbar-inner">
       <a class="brand" href="#top">Leonardt Lauenstein</a>
@@ -383,21 +265,21 @@
     </div>
   </header>
 
-  <!-- ============ Hero ============ -->
+  <!-- Hero -->
   <section class="hero" id="top">
     <div class="wrap">
-      <div class="status">Available now · Open to email engineering roles</div>
+      <div class="status">Available now · Open to design engineering roles</div>
 
       <h1 class="display">
-        Email engineer<br />
-        automating the lifecycle<br />
-        pipeline with <em>AI.</em>
+        Design engineer<br />
+        bridging Figma<br />
+        to <em>production code.</em>
       </h1>
 
       <p class="hero-lede">
-        I'm Leonardt, email engineer with a design background.
-        Most recently at <strong>Prezi</strong>, where my AI pipeline (Claude → Cursor → Braze) cut campaign production from <strong>hours to under 15 minutes</strong>.
-        Before that, growth campaigns at <strong>Pier</strong>: +5M ad impressions in 7 days.
+        I'm Leonardt, design engineer with seven years across design and front-end.
+        Most recently at <strong>Prezi</strong>, where I built an AI pipeline (Claude → Cursor → Braze) that ships pixel-precise UIs from brief to production in under 15 minutes.
+        Before that, React + DatoCMS at <strong>Pier</strong>: +5M ad impressions in 7 days.
       </p>
 
       <div class="hero-meta">
@@ -431,7 +313,7 @@
     </div>
   </section>
 
-  <!-- ============ Stack ============ -->
+  <!-- Stack -->
   <section id="stack">
     <div class="wrap">
       <div class="section-head">
@@ -441,20 +323,55 @@
 
       <div class="stack-groups">
         <div class="stack-group">
-          <div class="stack-label">Email &amp; in-app engineering</div>
+          <div class="stack-label">Design engineering</div>
           <div class="chips">
+            <span class="chip">Figma</span>
+            <span class="chip">Design systems</span>
+            <span class="chip">Component architecture</span>
+            <span class="chip">Design tokens</span>
+            <span class="chip">Motion</span>
+            <span class="chip">Adobe Creative Cloud</span>
+          </div>
+        </div>
+
+        <div class="stack-group">
+          <div class="stack-label">Front-end</div>
+          <div class="chips">
+            <span class="chip">React</span>
+            <span class="chip">TypeScript</span>
+            <span class="chip">Next.js</span>
             <span class="chip">HTML / CSS (hand-coded)</span>
             <span class="chip">JavaScript</span>
-            <span class="chip">Liquid</span>
+            <span class="chip">Tailwind</span>
+            <span class="chip">Node.js</span>
+            <span class="chip">Responsive</span>
+            <span class="chip">Accessibility</span>
+          </div>
+        </div>
+
+        <div class="stack-group">
+          <div class="stack-label">Lifecycle messaging</div>
+          <div class="chips">
             <span class="chip">Braze (CRM)</span>
+            <span class="chip">Liquid</span>
             <span class="chip">In-app messaging</span>
             <span class="chip">Litmus</span>
             <span class="chip">Cross-client QA (Gmail · Outlook · Apple Mail)</span>
-            <span class="chip">Accessibility</span>
-            <span class="chip">Dark mode</span>
-            <span class="chip">Mobile-first rendering</span>
             <span class="chip">VML for Outlook</span>
             <span class="chip">Dynamic content blocks</span>
+            <span class="chip">Dark mode</span>
+            <span class="chip">Mobile-first rendering</span>
+          </div>
+        </div>
+
+        <div class="stack-group">
+          <div class="stack-label">AI &amp; automation</div>
+          <div class="chips">
+            <span class="chip">Claude</span>
+            <span class="chip">Cursor</span>
+            <span class="chip">JSON pipelines</span>
+            <span class="chip">Figma → code</span>
+            <span class="chip">Prompt engineering</span>
           </div>
         </div>
 
@@ -465,30 +382,6 @@
             <span class="chip">Hex</span>
             <span class="chip">CTR / open-rate analysis</span>
             <span class="chip">Conversion modeling</span>
-          </div>
-        </div>
-
-        <div class="stack-group">
-          <div class="stack-label">AI &amp; automation</div>
-          <div class="chips">
-            <span class="chip">Claude</span>
-            <span class="chip">Cursor</span>
-            <span class="chip">Node.js</span>
-            <span class="chip">JSON pipelines</span>
-            <span class="chip">Figma → Braze automation</span>
-            <span class="chip">Prompt engineering</span>
-          </div>
-        </div>
-
-        <div class="stack-group">
-          <div class="stack-label">Design &amp; web</div>
-          <div class="chips">
-            <span class="chip">Figma</span>
-            <span class="chip">Adobe Creative Cloud</span>
-            <span class="chip">React</span>
-            <span class="chip">TypeScript</span>
-            <span class="chip">Next.js</span>
-            <span class="chip">Notion</span>
           </div>
         </div>
 
@@ -506,7 +399,7 @@
     </div>
   </section>
 
-  <!-- ============ Selected work ============ -->
+  <!-- Selected work -->
   <section id="work">
     <div class="wrap">
       <div class="section-head">
@@ -516,84 +409,84 @@
 
       <div class="cases">
 
-        <!-- Case 01 — PREZI AI automation (the differentiator) -->
+        <!-- Case 01 — Prezi AI pipeline (design ↔ code bridge) -->
         <article class="case">
           <div class="case-media" style="background: linear-gradient(135deg, var(--accent-soft), var(--bg-soft)); display:flex; align-items:center; justify-content:center;">
             <code style="font-family: 'SF Mono', Menlo, monospace; font-size: 13px; color: var(--ink-soft); padding: 32px; line-height: 1.7; text-align: left;">
-brief<br/>
+Figma brief<br/>
 &nbsp;&nbsp;↓<br/>
 <span style="color: var(--accent);">Claude</span> → content<br/>
 &nbsp;&nbsp;↓<br/>
-<span style="color: var(--accent);">Cursor</span> → template<br/>
+<span style="color: var(--accent);">Cursor</span> → component<br/>
 &nbsp;&nbsp;↓<br/>
-<span style="color: var(--accent);">Braze</span> → campaign
+<span style="color: var(--accent);">Braze</span> → production
             </code>
           </div>
           <div class="case-body">
-            <div class="case-meta"><span>2024 — now</span><span>Prezi</span><span>AI automation</span></div>
-            <h3>How I automated Prezi's lifecycle messaging pipeline</h3>
+            <div class="case-meta"><span>2024 — now</span><span>Prezi</span><span>Design ↔ Code</span></div>
+            <h3>From Figma brief to production UI in under 15 minutes</h3>
             <p>
-              Built an AI pipeline that runs lifecycle production from brief to ship. <strong>Claude</strong>
-              writes the content. <strong>Cursor</strong> assembles the responsive templates
-              (emails in HTML/CSS + Liquid, in-app messages in HTML/CSS + JavaScript). <strong>Braze</strong>
-              ships the campaign across both <strong>email</strong> and <strong>in-app</strong>.
-              Everything flows as structured JSON, so the pipeline is versionable and reviewable
-              instead of hand-authored each time. The same pipeline runs the A/B variants: subject-line
-              and CTA tests at <strong>3M+ sends per arm</strong>, analysed in Hex.
+              Built the AI pipeline that ships pixel-precise UIs from brief to production.
+              <strong>Claude</strong> writes the content. <strong>Cursor</strong> assembles the
+              components (emails in HTML/CSS + Liquid, in-app messages in HTML/CSS + JavaScript).
+              <strong>Braze</strong> ships across both email and in-app surfaces. Everything flows
+              as structured JSON, which keeps the whole thing versionable and reviewable. Design
+              intent survives from spec to ship.
             </p>
             <div class="case-result">
               <span class="num">&lt;15 min</span>
               <span class="what">per campaign, down from 3–8 hours</span>
             </div>
             <div class="case-tags">
-              <span>Claude</span><span>Cursor</span><span>Node</span><span>JSON</span><span>Braze</span><span>Liquid</span><span>JavaScript</span><span>In-app messaging</span>
+              <span>Figma</span><span>Claude</span><span>Cursor</span><span>React</span><span>HTML/CSS</span><span>JavaScript</span><span>Braze</span>
             </div>
           </div>
         </article>
 
-        <!-- Case 02 — PIER × TINDER (the big-number story) -->
+        <!-- Case 02 — Pier × Tinder (visual system + front-end) -->
         <article class="case reverse">
           <div class="case-media">
             <img src="https://leonardt-profile.netlify.app/assets/img/portfolio/pier+tinder.gif" alt="Pier x Tinder Carnival landing page — animated walkthrough" loading="lazy" />
           </div>
           <div class="case-body">
-            <div class="case-meta"><span>2023</span><span>Pier</span><span>Growth marketing</span></div>
-            <h3>Pier × Tinder, Carnival campaign</h3>
+            <div class="case-meta"><span>2023</span><span>Pier</span><span>Visual system + Front-end</span></div>
+            <h3>Pier × Tinder, Carnival visual system</h3>
             <p>
               Co-marketing between Pier (digital insurance) and Tinder for Brazilian Carnival 2023.
-              I owned the visual system across the landing page, Tinder swipe-card ad creative and
-              the full ad rollout. One person from design to shipped code, on a tight co-marketing timeline.
+              I owned the visual system from Figma through the React landing page, swipe-card ad
+              creative and the full ad rollout. One person from design intent to shipped code, on
+              a tight co-marketing timeline.
             </p>
             <div class="case-result">
               <span class="num">+5M</span>
               <span class="what">ad impressions in 7 days</span>
             </div>
             <div class="case-tags">
-              <span>Landing page</span><span>Ad creative</span><span>Brand</span><span>Co-marketing</span>
+              <span>Figma</span><span>React</span><span>DatoCMS</span><span>Visual system</span><span>Co-marketing</span>
             </div>
           </div>
         </article>
 
-        <!-- Case 03 — PIER AI ads (early AI adoption) -->
+        <!-- Case 03 — Pier AI creatives (early adopter) -->
         <article class="case">
           <div class="case-media" style="aspect-ratio: 4 / 3;">
             <img src="https://leonardt-profile.netlify.app/assets/img/portfolio/auto-1.webp" alt="Pier Auto coverage AI-generated ads" loading="lazy" style="object-fit: cover;" />
           </div>
           <div class="case-body">
-            <div class="case-meta"><span>2023</span><span>Pier</span><span>AI + growth</span></div>
-            <h3>AI-generated ad creatives, back when AI was still new</h3>
+            <div class="case-meta"><span>2023</span><span>Pier</span><span>AI + Design</span></div>
+            <h3>AI-generated ad creatives, embedded in a brand system</h3>
             <p>
               In early 2023 I started shipping production ad creatives using AI image generation,
               embedded inside Pier's brand system. Auto-coverage and smartphone-insurance campaigns
-              hit over a million impressions in a week. I've been running generative AI in real
-              marketing output well before it became the trend.
+              hit over a million impressions a week. I've been running generative AI in real visual
+              design output well before it became the trend.
             </p>
             <div class="case-result">
               <span class="num">+1M</span>
               <span class="what">impressions in 7 days · per campaign</span>
             </div>
             <div class="case-tags">
-              <span>AI image generation</span><span>Ad creative</span><span>Performance</span>
+              <span>AI image generation</span><span>Brand system</span><span>Visual design</span>
             </div>
           </div>
         </article>
@@ -602,7 +495,7 @@ brief<br/>
     </div>
   </section>
 
-  <!-- ============ Experience ============ -->
+  <!-- Experience -->
   <section id="experience">
     <div class="wrap">
       <div class="section-head">
@@ -616,7 +509,7 @@ brief<br/>
           <div>
             <div class="role-title">Email Front-End Developer</div>
             <div class="role-org">
-              <a href="https://prezi.com" target="_blank" rel="noopener">Prezi</a> — Remote, Portugal · Built, tested &amp; automated lifecycle email and in-app messaging with AI
+              <a href="https://prezi.com" target="_blank" rel="noopener">Prezi</a> — Remote, Portugal · Built lifecycle UI for email + in-app, automated with AI
             </div>
           </div>
         </div>
@@ -636,7 +529,7 @@ brief<br/>
           <div>
             <div class="role-title">Front-end · Designer</div>
             <div class="role-org">
-              <a href="https://www.pier.digital/" target="_blank" rel="noopener">Pier</a> — Remote, Brazil · Growth campaigns, landing pages &amp; ad creatives
+              <a href="https://www.pier.digital/" target="_blank" rel="noopener">Pier</a> — Remote, Brazil · React + DatoCMS, landing pages, visual systems, ad creatives
             </div>
           </div>
         </div>
@@ -645,7 +538,7 @@ brief<br/>
           <div class="role-when">2020 — present</div>
           <div>
             <div class="role-title">Web Developer · Freelance</div>
-            <div class="role-org">Brazil · Portugal · Germany</div>
+            <div class="role-org">Brazil · Portugal · Germany · Figma to deployment for international clients</div>
           </div>
         </div>
 
@@ -658,12 +551,10 @@ brief<br/>
         </div>
 
         <div class="role">
-          <div class="role-when">2020</div>
+          <div class="role-when">March 2020</div>
           <div>
             <div class="role-title">Full-stack Coding Bootcamp</div>
-            <div class="role-org">
-              <a href="https://www.lewagon.com/web-development-course/full-time" target="_blank" rel="noopener">Le Wagon</a> — Lisbon
-            </div>
+            <div class="role-org">Le Wagon — Lisbon</div>
           </div>
         </div>
 
@@ -678,7 +569,7 @@ brief<br/>
     </div>
   </section>
 
-  <!-- ============ Contact ============ -->
+  <!-- Contact -->
   <section id="contact">
     <div class="wrap">
       <div class="section-head">
@@ -688,13 +579,13 @@ brief<br/>
 
       <div class="contact-grid">
         <p class="contact-lede">
-          Need an <em>email engineer</em> who codes, tests, and automates the whole pipeline? Let's talk.
+          Need a <em>design engineer</em> who bridges Figma and React all the way to production? Let's talk.
         </p>
         <div class="contact-links">
           <a href="mailto:leonardt@outlook.com">leonardt@outlook.com →</a>
           <a href="https://www.linkedin.com/in/leonardtlauenstein/" target="_blank" rel="noopener">LinkedIn ↗</a>
           <a href="https://github.com/leovenom/" target="_blank" rel="noopener">GitHub ↗</a>
-          <a href="CV_Leonardt_2026.pdf" target="_blank" rel="noopener">
+          <a href="CV_Leonardt_2026_DesignEngineer.pdf" target="_blank" rel="noopener">
             Download CV (PDF) ↓
           </a>
         </div>
@@ -708,10 +599,8 @@ brief<br/>
   </footer>
 
   <script>
-    // Auto-update the copyright year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Tiny progressive enhancement: underline-on-scroll for nav links
     const navLinks = document.querySelectorAll('.topbar-links a');
     const sections = ['work', 'experience', 'contact'].map(id => document.getElementById(id)).filter(Boolean);
     const io = new IntersectionObserver(entries => {
