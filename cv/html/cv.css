@@ -55,7 +55,7 @@ a {
   align-items: flex-start;
   gap: 16px;
   flex-shrink: 0;
-  padding-bottom: 7px;
+  padding-bottom: 12px;
   border-bottom: 1px solid var(--line);
 }
 
@@ -99,9 +99,9 @@ a {
 .summary {
   flex-shrink: 0;
   margin: 0;
-  padding: 7px 0;
+  padding: 15px 0 16px;
   font-size: 11.25px;
-  line-height: 1.52;
+  line-height: 1.58;
   border-bottom: 1px solid var(--line);
 }
 
@@ -110,8 +110,8 @@ a {
   min-height: 0;
   display: grid;
   grid-template-columns: 66fr 34fr;
-  gap: 12px;
-  padding-top: 8px;
+  gap: 12mm;
+  padding-top: 5mm;
   align-items: start;
 }
 
