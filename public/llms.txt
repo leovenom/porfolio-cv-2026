@@ -1,0 +1,32 @@
+# Leonardt Lauenstein
+
+> Email engineer, design engineer, and front-end developer based in Porto, Portugal.
+
+Leonardt Lauenstein builds lifecycle email systems, design-to-production UI, and AI-assisted production pipelines. Seven years across design and front-end. Most recently Email Front-End Developer at Prezi (Jun 2024 – Jun 2026). Previously growth front-end and design at Pier and Hakkoda.
+
+## Contact
+
+- Email: leonardt.lauenstein@gmail.com
+- LinkedIn: https://www.linkedin.com/in/leonardtlauenstein/
+- GitHub: https://github.com/leovenom
+- Location: Porto, Portugal (open to Porto hybrid, remote within Portugal, EU, or global)
+
+## Portfolio pages
+
+- Email Engineer: https://porfolio-cv-2026.vercel.app/
+- Design Engineer: https://porfolio-cv-2026.vercel.app/design
+- Front-end Developer: https://porfolio-cv-2026.vercel.app/front-end
+
+## CVs
+
+- Email Engineer CV: https://porfolio-cv-2026.vercel.app/CV_Leonardt_2026.pdf
+- Design Engineer CV: https://porfolio-cv-2026.vercel.app/CV_Leonardt_2026_DesignEngineer.pdf
+- Front-end Developer CV: https://porfolio-cv-2026.vercel.app/CV_Leonardt_2026_FrontEnd.pdf
+
+## Key skills
+
+React, TypeScript, Next.js, HTML/CSS, Tailwind, Figma, Braze, Liquid, Litmus, A/B testing, Claude, Cursor, design systems, lifecycle email engineering.
+
+## Open source
+
+- ai-design-engineering: https://github.com/leovenom/ai-design-engineering
