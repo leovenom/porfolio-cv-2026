@@ -9,6 +9,81 @@ export function sectionHref(pathname: string, variantPath: string, hash: string)
   return onProjectPage ? `${variantPath}${hash}` : hash
 }
 
+const MAX_SCROLL_RETRIES = 48
+
+export function syncNavScrollOffset() {
+  const nav = document.querySelector<HTMLElement>('.nav-header')
+  if (!nav) return
+
+  document.documentElement.style.setProperty(
+    '--nav-scroll-offset',
+    `${Math.ceil(nav.getBoundingClientRect().height)}px`,
+  )
+}
+
+export function getNavScrollOffset(extra = 0): number {
+  const value = getComputedStyle(document.documentElement).getPropertyValue('--nav-scroll-offset')
+  const parsed = Number.parseFloat(value)
+  if (Number.isFinite(parsed) && parsed > 0) return parsed + extra
+
+  const nav = document.querySelector<HTMLElement>('.nav-header')
+  return (nav?.getBoundingClientRect().height ?? 72) + extra
+}
+
+export function scrollToSectionById(
+  id: string,
+  behavior: ScrollBehavior = 'smooth',
+): Promise<boolean> {
+  return new Promise((resolve) => {
+    let attempts = 0
+
+    const tryScroll = () => {
+      const target = document.getElementById(id)
+      if (target) {
+        const top = target.getBoundingClientRect().top + window.scrollY - getNavScrollOffset()
+        window.scrollTo({ top: Math.max(0, top), behavior })
+        if (window.location.hash !== `#${id}`) {
+          history.replaceState(null, '', `#${id}`)
+        }
+        resolve(true)
+        return
+      }
+
+      attempts += 1
+      if (attempts >= MAX_SCROLL_RETRIES) {
+        resolve(false)
+        return
+      }
+
+      requestAnimationFrame(tryScroll)
+    }
+
+    tryScroll()
+  })
+}
+
+export function navigateToSection(options: {
+  hash: string
+  pathname: string
+  variantPath: string
+  navigate: (to: string) => void
+  behavior: ScrollBehavior
+  onAfterNavigate?: () => void
+}) {
+  const { hash, pathname, variantPath, navigate, behavior, onAfterNavigate } = options
+  const id = hash.replace(/^#/, '')
+  const onPortfolioPage = pathname === variantPath
+
+  onAfterNavigate?.()
+
+  if (!onPortfolioPage) {
+    navigate(`${variantPath}${hash}`)
+    return
+  }
+
+  void scrollToSectionById(id, behavior)
+}
+
 export function NewTabNotice() {
   return <span className="sr-only"> (opens in new tab)</span>
 }
@@ -38,6 +113,15 @@ export function useRouteFocus() {
         { pathname: location.pathname, search: location.search, hash: location.hash },
         { replace: true, state: null },
       )
+      return
+    }
+
+    if (location.hash) {
+      syncNavScrollOffset()
+      const id = location.hash.slice(1)
+      requestAnimationFrame(() => {
+        void scrollToSectionById(id, 'auto')
+      })
     }
   }, [location, navigate])
 }

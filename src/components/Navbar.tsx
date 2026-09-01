@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { IconArrowUpRight, IconList, IconX } from './icons'
 import { usePortfolioVariant } from '../context/PortfolioVariantContext'
 import { contact } from '../data/content'
-import { NewTabNotice, sectionHref, useFocusTrap } from '../lib/a11y'
+import { NewTabNotice, navigateToSection, sectionHref, syncNavScrollOffset, useFocusTrap } from '../lib/a11y'
 import { entranceTransition, modalItem, modalOverlay, motionDurations } from '../lib/motion'
 
 const links = [
@@ -35,6 +35,22 @@ export function Navbar() {
   useFocusTrap(menuRef, open, closeMenu)
 
   useEffect(() => {
+    const nav = document.querySelector<HTMLElement>('.nav-header')
+    if (!nav) return
+
+    syncNavScrollOffset()
+
+    const observer = new ResizeObserver(() => syncNavScrollOffset())
+    observer.observe(nav)
+    window.addEventListener('resize', syncNavScrollOffset, { passive: true })
+
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('resize', syncNavScrollOffset)
+    }
+  }, [])
+
+  useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
@@ -48,11 +64,23 @@ export function Navbar() {
     }
   }, [open])
 
+  const scrollBehavior: ScrollBehavior = reduced ? 'auto' : 'smooth'
+
+  const handleSectionClick = (hash: string) => (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault()
+    navigateToSection({
+      hash,
+      pathname,
+      variantPath: variant.path,
+      navigate,
+      behavior: scrollBehavior,
+      onAfterNavigate: open ? closeMenu : undefined,
+    })
+  }
+
   const handleBrandClick = (event: MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault()
     if (open) closeMenu()
-
-    const scrollBehavior: ScrollBehavior = reduced ? 'auto' : 'smooth'
 
     if (pathname === variant.path) {
       window.scrollTo({ top: 0, behavior: scrollBehavior })
@@ -68,8 +96,8 @@ export function Navbar() {
         initial={reduced ? false : { opacity: 0, y: -12, scale: 0.95 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={entranceTransition(0, motionDurations.modal)}
-        className={`fixed inset-x-0 top-0 z-50 transition-[background,backdrop-filter,border-color] duration-300 ${
-          scrolled ? 'glass-subtle border-b glass-divider' : 'border-b border-transparent bg-transparent'
+        className={`nav-header fixed inset-x-0 top-0 z-50 isolate ${
+          scrolled ? 'nav-header--scrolled' : ''
         }`}
       >
         <div className="page-shell flex items-center justify-between py-4">
@@ -87,6 +115,7 @@ export function Navbar() {
               <a
                 key={link.href}
                 href={hrefFor(link.href)}
+                onClick={handleSectionClick(link.href)}
                 className="nav-link text-sm text-ink-muted transition-colors duration-200 hover:text-ink"
               >
                 {link.label}
@@ -139,13 +168,13 @@ export function Navbar() {
                 <motion.a
                   key={link.href}
                   href={hrefFor(link.href)}
+                  onClick={handleSectionClick(link.href)}
                   initial="hidden"
                   animate="visible"
                   exit="exit"
                   custom={i * 0.04}
                   variants={reduced ? undefined : modalItem}
-                  className="nav-link font-display text-4xl text-ink"
-                  onClick={closeMenu}
+                  className="nav-link text-xl text-ink-muted transition-colors duration-200 hover:text-ink"
                 >
                   {link.label}
                 </motion.a>

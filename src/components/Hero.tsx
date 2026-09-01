@@ -1,9 +1,10 @@
-import { useRef } from 'react'
+import { useRef, type MouseEvent } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
 import { IconArrowDown, IconArrowUpRight } from './icons'
 import { HeroSplash } from './HeroSplash'
 import { usePortfolioVariant } from '../context/PortfolioVariantContext'
 import { contact } from '../data/content'
+import { scrollToSectionById } from '../lib/a11y'
 import { entranceTransition, motionDurations } from '../lib/motion'
 
 export function Hero() {
@@ -11,6 +12,11 @@ export function Hero() {
   const variant = usePortfolioVariant()
   const { hero } = variant
   const sectionRef = useRef<HTMLElement>(null)
+
+  const scrollToWork = (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault()
+    void scrollToSectionById('work', reduced ? 'auto' : 'smooth')
+  }
 
   return (
     <section
@@ -54,6 +60,7 @@ export function Hero() {
           >
             <a
               href="#work"
+              onClick={scrollToWork}
               className="glass-btn-primary inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium"
             >
               See selected work
@@ -90,6 +97,7 @@ export function Hero() {
 
       <motion.a
         href="#work"
+        onClick={scrollToWork}
         initial={reduced ? false : { opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={entranceTransition(0.55, motionDurations.standard)}

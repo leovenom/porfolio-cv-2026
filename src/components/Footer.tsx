@@ -1,14 +1,38 @@
-import { useLocation } from 'react-router-dom'
+import { useReducedMotion } from 'motion/react'
+import { type MouseEvent } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { usePortfolioVariant } from '../context/PortfolioVariantContext'
 import { contact } from '../data/content'
-import { NewTabNotice, sectionHref } from '../lib/a11y'
+import { NewTabNotice, navigateToSection, sectionHref } from '../lib/a11y'
+
+const sectionLinks = [
+  { href: '#work', label: 'Work' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#stack', label: 'Stack' },
+  { href: '#contact', label: 'Contact' },
+] as const
 
 export function Footer() {
+  const reduced = useReducedMotion()
   const { pathname } = useLocation()
+  const navigate = useNavigate()
   const variant = usePortfolioVariant()
   const year = new Date().getFullYear()
   const roleLabel = variant.pageTitle.replace('Leonardt Lauenstein — ', '')
   const hrefFor = (hash: string) => sectionHref(pathname, variant.path, hash)
+  const scrollBehavior: ScrollBehavior = reduced ? 'auto' : 'smooth'
+
+  const handleSectionClick = (hash: string) => (event: MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault()
+    navigateToSection({
+      hash,
+      pathname,
+      variantPath: variant.path,
+      navigate,
+      behavior: scrollBehavior,
+    })
+  }
 
   return (
     <footer className="glass-subtle border-t glass-divider py-8">
@@ -17,21 +41,16 @@ export function Footer() {
           © {year} {contact.name}. {roleLabel} · Porto, Portugal
         </p>
         <nav aria-label="Footer" className="flex flex-wrap gap-4 font-mono text-xs">
-          <a href={hrefFor('#work')} className="nav-link transition-colors hover:text-ink">
-            Work
-          </a>
-          <a href={hrefFor('#projects')} className="nav-link transition-colors hover:text-ink">
-            Projects
-          </a>
-          <a href={hrefFor('#experience')} className="nav-link transition-colors hover:text-ink">
-            Experience
-          </a>
-          <a href={hrefFor('#stack')} className="nav-link transition-colors hover:text-ink">
-            Stack
-          </a>
-          <a href={hrefFor('#contact')} className="nav-link transition-colors hover:text-ink">
-            Contact
-          </a>
+          {sectionLinks.map((link) => (
+            <a
+              key={link.href}
+              href={hrefFor(link.href)}
+              onClick={handleSectionClick(link.href)}
+              className="nav-link transition-colors hover:text-ink"
+            >
+              {link.label}
+            </a>
+          ))}
           <a
             href={variant.cvUrl}
             target="_blank"

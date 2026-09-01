@@ -1,4 +1,8 @@
 {
+  "redirects": [
+    { "source": "/design.html", "destination": "/design", "permanent": true },
+    { "source": "/front-end.html", "destination": "/front-end", "permanent": true }
+  ],
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
   "headers": [
     {

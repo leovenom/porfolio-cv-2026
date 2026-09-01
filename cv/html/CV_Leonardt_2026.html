@@ -7,135 +7,182 @@
     <style>
       :root {
         --accent: #8ec5ff;
-        --accent-soft: rgba(142, 197, 255, 0.16);
         --accent-strong: #5b8ec7;
       }
     </style>
   </head>
   <body>
-    <header class="top">
-      <div>
-        <h1 class="name">Leonardt Lauenstein</h1>
-        <p class="role"><span class="accent">Email Engineer</span> · Front-end Developer · Design Background</p>
+    <div class="cv-sheet">
+      <header class="masthead">
+        <div class="masthead-left">
+          <h1 class="name">Leonardt Lauenstein</h1>
+          <p class="tagline">Email Engineer · Front-end Developer · Lifecycle Messaging</p>
+        </div>
+        <div class="masthead-right">
+          <p class="email"><a href="mailto:leonardt@outlook.com">leonardt@outlook.com</a></p>
+          <p class="links">
+            <a href="https://porfolio-cv-2026.vercel.app/">Portfolio</a> ·
+            <a href="https://www.linkedin.com/in/leonardtlauenstein/">LinkedIn</a> ·
+            <a href="https://github.com/leovenom">GitHub</a>
+          </p>
+        </div>
+      </header>
+
+      <p class="summary">
+        Email engineer with seven years across design and front-end. I code and automate the systems behind lifecycle email
+        and in-app programs — hand-coded HTML/CSS + Liquid, cross-client QA, and AI-assisted production pipelines. Most
+        recently at Prezi, where I built the Claude + Cursor + Braze pipeline that cut campaign turnaround from 3–8 hours to
+        under 15 minutes, with A/B tests at 3M+ sends per arm.
+      </p>
+
+      <div class="layout">
+        <div class="col-left">
+          <section>
+            <h2 class="section-title"><span class="num">00</span> Experience</h2>
+
+            <article class="job-block">
+              <div class="job-block-head">
+                <h3>Email Front-end Developer</h3>
+                <time>Jun 2024 — Jun 2026</time>
+              </div>
+              <p class="job-block-meta">Prezi · Remote, Portugal</p>
+              <ul class="job-bullets">
+                <li>
+                  Built the <strong>AI pipeline</strong> that runs lifecycle production: Claude writes, Cursor assembles,
+                  Braze ships — campaign turnaround from 3–8h to under 15 min per campaign.
+                </li>
+                <li>
+                  Hand-coded email templates (HTML/CSS + Liquid) and in-app messages (HTML/CSS + JavaScript), pixel-precise
+                  to Figma specs across lifecycle programs.
+                </li>
+                <li>
+                  Owned cross-client QA across Gmail, Outlook and Apple Mail via Litmus — accessibility checks, dark mode,
+                  mobile-first rendering, with performance tracked in Hex.
+                </li>
+                <li>
+                  Ran subject-line and CTA A/B tests at <strong>3M+ sends per arm</strong>; fed winners back into the ongoing
+                  lifecycle after analysis in Hex.
+                </li>
+                <li>
+                  Open-sourced the patterns behind the pipeline: brief schemas, prompt patterns, Cursor rules and
+                  anti-patterns (github.com/leovenom/ai-design-engineering).
+                </li>
+              </ul>
+            </article>
+
+            <article class="job-block">
+              <div class="job-block-head">
+                <h3>Web Designer &amp; Developer</h3>
+                <time>Dec 2023 — Jun 2024</time>
+              </div>
+              <p class="job-block-meta">Hakkoda · Remote, Portugal · 6-month contract</p>
+              <ul class="job-bullets">
+                <li>
+                  Translated Figma designs into responsive production websites using semantic HTML, SEO fundamentals and
+                  performance best practices.
+                </li>
+                <li>
+                  Built and shipped the marketing site end to end on WordPress (Figma, HubSpot), modeling and maintaining
+                  content directly in the CMS.
+                </li>
+              </ul>
+            </article>
+
+            <article class="job-block">
+              <div class="job-block-head">
+                <h3>Front-end Engineer · Designer</h3>
+                <time>2021 — 2023</time>
+              </div>
+              <p class="job-block-meta">Pier · Remote, Brazil</p>
+              <ul class="job-bullets">
+                <li>
+                  Owned the Pier × Tinder Carnival co-marketing campaign: landing page, ad creative and brand surfaces —
+                  <strong>5M+ ad impressions in 7 days</strong>.
+                </li>
+                <li>
+                  Shipped AI-generated ad creatives for auto and smartphone insurance:
+                  <strong>1M+ impressions/week</strong> per campaign.
+                </li>
+                <li>
+                  Built React + DatoCMS landing pages for quarterly OKRs, working alongside content, engineering and PMs in a
+                  fast-moving acquisition team.
+                </li>
+              </ul>
+            </article>
+
+            <article class="job-block">
+              <div class="job-block-head">
+                <h3>Web Developer — Freelance</h3>
+                <time>2020 — present</time>
+              </div>
+              <p class="job-block-meta">Brazil · Portugal · Germany</p>
+              <ul class="job-bullets">
+                <li>
+                  Web projects from Figma to deployment for international clients — React, Next.js, Node, Ruby on Rails,
+                  WordPress.
+                </li>
+              </ul>
+            </article>
+          </section>
+        </div>
+
+        <div class="col-right">
+          <section>
+            <h2 class="section-title"><span class="num">01</span> Stack</h2>
+            <div class="stack-group">
+              <h3>Email &amp; in-app engineering</h3>
+              <p>
+                HTML/CSS (hand-coded) · JavaScript · Liquid · Braze (CRM) · In-app messaging · Litmus · Cross-client QA
+                (Gmail · Outlook · Apple Mail) · Accessibility · Dark mode · Mobile-first rendering · VML for Outlook ·
+                Dynamic content blocks
+              </p>
+            </div>
+            <div class="stack-group">
+              <h3>Optimization &amp; analytics</h3>
+              <p>A/B testing · Hex · CTR / open-rate analysis · Conversion modeling</p>
+            </div>
+            <div class="stack-group">
+              <h3>AI &amp; automation</h3>
+              <p>Claude · Claude Code · Cursor · Node.js · JSON pipelines · Figma → Braze automation · Prompt engineering</p>
+            </div>
+            <div class="stack-group">
+              <h3>Design &amp; web</h3>
+              <p>Figma · Adobe Creative Cloud · React · TypeScript · Next.js · Notion</p>
+            </div>
+            <div class="stack-group">
+              <h3>Delivery</h3>
+              <p>Git · WordPress · DatoCMS · Performance · Jira</p>
+            </div>
+          </section>
+
+          <section>
+            <h2 class="section-title"><span class="num">02</span> Education &amp; background</h2>
+            <div class="education-item">
+              <h3>B.A. Industrial Design</h3>
+              <p>UniverCidade · Rio de Janeiro · 2007–2010</p>
+            </div>
+            <div class="education-item">
+              <h3>Artist Assistant · Contemporary Art</h3>
+              <p>Luiz Zerbini, Luiz Roque &amp; others · Rio de Janeiro · 2015–2020</p>
+            </div>
+            <div class="education-item">
+              <h3>Full-stack Coding Bootcamp</h3>
+              <p>Le Wagon · Lisbon · 2020</p>
+            </div>
+            <div class="education-item">
+              <h3>The Web Developer Bootcamp</h3>
+              <p>Udemy · 2019</p>
+            </div>
+          </section>
+
+          <section>
+            <h2 class="section-title"><span class="num">03</span> Languages</h2>
+            <div class="lang-row"><span>Portuguese</span><span>Native</span></div>
+            <div class="lang-row"><span>English</span><span>Advanced</span></div>
+            <div class="lang-row"><span>German</span><span>Intermediate</span></div>
+          </section>
+        </div>
       </div>
-      <div class="contact">
-        <div>Portugal · PT/EN/DE</div>
-        <div><a href="mailto:leonardt@outlook.com">leonardt@outlook.com</a></div>
-        <div><a href="https://porfolio-cv-2026.vercel.app/">porfolio-cv-2026.vercel.app</a> · <a href="https://www.linkedin.com/in/leonardtlauenstein/">LinkedIn</a> · <a href="https://github.com/leovenom">GitHub</a></div>
-      </div>
-    </header>
-
-    <p class="summary">
-      Email engineer with seven years across design and front-end. I code and <em>automate</em> the systems behind lifecycle email programs. Most recently at Prezi, where I replaced a manual production cycle with an AI pipeline.
-    </p>
-
-    <div class="layout">
-      <section>
-        <h2 class="section-title">Experience <span class="num">— 00</span></h2>
-
-        <article class="job">
-          <div class="job-head">
-            <h3>Email Front-End Developer</h3>
-            <time>Jun 2024 — Jun 2026</time>
-          </div>
-          <p class="job-meta">Prezi · Remote, Portugal</p>
-          <ul>
-            <li>Built the AI pipeline that runs lifecycle production: <span class="hl">Claude</span> writes, <span class="hl">Cursor</span> assembles, <span class="hl">Braze</span> ships. Campaigns went from <span class="hl">3–8h</span> to <span class="hl">&lt;15min</span>.</li>
-            <li>Hand-coded email templates (HTML/CSS + Liquid) and in-app messages (HTML/CSS + JavaScript) for lifecycle campaigns in Braze.</li>
-            <li>QA across Gmail, Outlook and Apple Mail through Litmus. Accessibility checks. Performance tracked in Hex.</li>
-            <li>Ran subject-line and CTA A/B tests at <span class="hl">3M+</span> sends per arm. Winners went back into the ongoing lifecycle after analysis in Hex.</li>
-          </ul>
-        </article>
-
-        <article class="job">
-          <div class="job-head">
-            <h3>Web Designer</h3>
-            <time>Dec 2023 — Jun 2024</time>
-          </div>
-          <p class="job-meta">Hakkoda · Remote, Portugal</p>
-          <ul>
-            <li>Six-month contract designing and coding the marketing site, plus presentations and internal reports. Stack: WordPress, Figma, HubSpot.</li>
-          </ul>
-        </article>
-
-        <article class="job">
-          <div class="job-head">
-            <h3>Front-end · Designer</h3>
-            <time>2021 — 2023</time>
-          </div>
-          <p class="job-meta">Pier · Remote, Brazil</p>
-          <ul>
-            <li>Pier × Tinder Carnival co-marketing: <span class="hl">+5M</span> ad impressions in 7 days. Owned the landing page, ad creative and brand surfaces.</li>
-            <li>Shipped AI-generated ad creatives for auto and smartphone insurance: <span class="hl">+1M</span> impressions/week per campaign.</li>
-            <li>Built React + DatoCMS landing pages for quarterly OKRs, plus email templates and ad creatives across acquisition channels.</li>
-            <li>Worked next to content, eng and PMs in a fast-moving acquisition team.</li>
-          </ul>
-        </article>
-
-        <article class="job">
-          <div class="job-head">
-            <h3>Web Developer · Freelance</h3>
-            <time>2020 — present</time>
-          </div>
-          <p class="job-meta">Brazil, Portugal, Germany</p>
-          <ul>
-            <li>Web projects from Figma to deployment for international clients. React, Next.js, Node, WordPress.</li>
-          </ul>
-        </article>
-      </section>
-
-      <aside class="sidebar">
-        <section>
-          <h2 class="section-title">Stack <span class="num">— 01</span></h2>
-          <div class="stack-group">
-            <h3>Email & in-app engineering</h3>
-            <p>HTML/CSS · JavaScript · Liquid · Braze (CRM) · In-app messaging · Litmus · Mobile-first rendering · Dark mode · VML for Outlook · Dynamic content blocks · Cross-client QA (Gmail, Outlook, Apple Mail) · Accessibility</p>
-          </div>
-          <div class="stack-group">
-            <h3>AI & automation</h3>
-            <p>Claude · Cursor · Node.js · JSON pipelines · Prompt engineering · Figma → Braze</p>
-          </div>
-          <div class="stack-group">
-            <h3>Optimization</h3>
-            <p>A/B testing (subject lines, CTAs) · Hex · CTR & open-rate analysis</p>
-          </div>
-          <div class="stack-group">
-            <h3>Design</h3>
-            <p>Figma · Adobe Creative Cloud · Design systems · Brand · Motion</p>
-          </div>
-          <div class="stack-group">
-            <h3>Web</h3>
-            <p>React · TypeScript · Next.js · Node.js · Tailwind · WordPress · DatoCMS</p>
-          </div>
-          <div class="stack-group">
-            <h3>Tools</h3>
-            <p>Notion · Jira · Elementor Pro</p>
-          </div>
-        </section>
-
-        <section>
-          <h2 class="section-title">Education <span class="num">— 02</span></h2>
-          <div class="education-item">
-            <h3>Full-stack Coding Bootcamp</h3>
-            <p>Le Wagon — Lisbon · March 2020</p>
-          </div>
-          <div class="education-item">
-            <h3>B.A. Industrial Design</h3>
-            <p>UniverCidade — Rio de Janeiro · 2007 — 2010</p>
-          </div>
-          <div class="education-item">
-            <h3>The Web Developer Bootcamp</h3>
-            <p>Udemy · 2019</p>
-          </div>
-        </section>
-
-        <section>
-          <h2 class="section-title">Languages <span class="num">— 03</span></h2>
-          <div class="lang-item"><h3>Portuguese</h3><p>native</p></div>
-          <div class="lang-item"><h3>English</h3><p>advanced</p></div>
-          <div class="lang-item"><h3>German</h3><p>intermediate</p></div>
-        </section>
-      </aside>
     </div>
   </body>
 </html>

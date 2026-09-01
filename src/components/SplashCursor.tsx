@@ -384,11 +384,11 @@ export default function SplashCursor({
               vec3 n = normalize(vec3(dx, dy, length(texelSize)));
               vec3 l = vec3(0.0, 0.0, 1.0);
 
-              float diffuse = clamp(dot(n, l) + 0.7, 0.7, 1.0);
+              float diffuse = clamp(dot(n, l) + 0.62, 0.62, 0.94);
               c *= diffuse;
           #endif
 
-          float a = max(c.r, max(c.g, c.b));
+          float a = max(c.r, max(c.g, c.b)) * 0.9;
           gl_FragColor = vec4(c, a);
       }
     `
@@ -1034,7 +1034,7 @@ export default function SplashCursor({
       const r = parseInt(val.slice(0, 2), 16) / 255
       const g = parseInt(val.slice(2, 4), 16) / 255
       const b = parseInt(val.slice(4, 6), 16) / 255
-      return { r: r * 0.15, g: g * 0.15, b: b * 0.15 }
+      return { r: r * 0.13, g: g * 0.13, b: b * 0.13 }
     }
 
     function generateColor() {
@@ -1042,9 +1042,9 @@ export default function SplashCursor({
         return hexToRGB(config.COLOR)
       }
       const c = HSVtoRGB(Math.random(), 1.0, 1.0)
-      c.r *= 0.15
-      c.g *= 0.15
-      c.b *= 0.15
+      c.r *= 0.13
+      c.g *= 0.13
+      c.b *= 0.13
       return c
     }
 

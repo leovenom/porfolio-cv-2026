@@ -9,7 +9,7 @@ type HeroSplashProps = {
 
 function HeroSplashFallback() {
   return (
-    <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,color-mix(in_srgb,var(--color-accent)_14%,transparent),transparent_50%),radial-gradient(circle_at_90%_70%,color-mix(in_srgb,var(--color-accent-cyan)_10%,transparent),transparent_45%)]" />
+    <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,color-mix(in_srgb,var(--color-accent)_13%,transparent),transparent_50%),radial-gradient(circle_at_90%_70%,color-mix(in_srgb,var(--color-accent-cyan)_9%,transparent),transparent_45%)]" />
   )
 }
 
@@ -33,15 +33,15 @@ export function HeroSplash({ sectionRef }: HeroSplashProps) {
       <HeroSplashFallback />
       <Suspense fallback={null}>
         <SplashCursor
-          className="absolute inset-0"
+          className="hero-splash-fluid absolute inset-0"
           interactionRef={sectionRef}
           DYE_RESOLUTION={768}
           SIM_RESOLUTION={128}
           SPLAT_RADIUS={0.22}
-          SPLAT_FORCE={5000}
-          DENSITY_DISSIPATION={4.2}
+          SPLAT_FORCE={4600}
+          DENSITY_DISSIPATION={4.3}
           RAINBOW_MODE={false}
-          COLOR="#8ec5ff"
+          COLOR="#7ec3ff"
           SHADING
         />
       </Suspense>
