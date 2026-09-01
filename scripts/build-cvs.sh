@@ -19,8 +19,9 @@ build_cv() {
     --headless=new \
     --disable-gpu \
     --no-pdf-header-footer \
+    --prefer-css-page-size \
     --run-all-compositor-stages-before-draw \
-    --virtual-time-budget=15000 \
+    --virtual-time-budget=20000 \
     --print-to-pdf="$OUT_DIR/$pdf" \
     "file://${HTML_DIR}/${html}"
 }
