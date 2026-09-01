@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://porfolio-cv-2026.vercel.app/sitemap.xml
