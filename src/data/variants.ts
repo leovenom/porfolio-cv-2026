@@ -173,6 +173,13 @@ export const variants: PortfolioVariant[] = [
         metric: '+1M impressions in 7 days',
         tags: ['AI image generation', 'Ad creative', 'Performance'],
       },
+      'send-studio-crm': {
+        subtitle: 'Personal · Lifecycle CRM on Resend',
+        description:
+          'End-to-end CRM for operators who live in email: block editor with Liquid and locale per contact, CSV import, multi-channel campaigns (email via Resend, WhatsApp, Telegram), and analytics fed by signed webhooks — including human vs bot open classification.',
+        metric: 'Human vs bot opens',
+        tags: ['Resend', 'Liquid', 'Webhooks', 'CRM', 'Next.js', 'Analytics'],
+      },
     },
     workIntro:
       'Lifecycle email, in-app messaging, and the AI pipeline that ships them. Three cases that show the full stack.',
