@@ -17,6 +17,7 @@ export type Project = {
   github?: string
   image?: string
   imageFit?: 'cover' | 'contain'
+  imagePosition?: string
   media?: 'pipeline'
   featured: boolean
   accent: 'copper' | 'sage' | 'neutral'
@@ -43,6 +44,7 @@ export const projects: Project[] = [
     href: 'https://send-studio.vercel.app/',
     github: 'https://github.com/leovenom/send-studio',
     image: 'https://send-studio.vercel.app/opengraph-image',
+    imagePosition: '38% top',
     featured: false,
     accent: 'copper',
   },
@@ -57,6 +59,7 @@ export const projects: Project[] = [
     tags: ['React', 'AI', 'PDF export', 'ATS', 'Product UI'],
     href: 'https://www.sinalverde.cv/',
     image: 'https://www.sinalverde.cv/images/og-image.png',
+    imagePosition: '32% top',
     featured: true,
     accent: 'sage',
   },

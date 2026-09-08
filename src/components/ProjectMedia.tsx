@@ -34,8 +34,12 @@ export function ProjectMedia({ project, framed = false, interactive = false }: P
           loading="lazy"
           decoding="async"
           className={`block h-full w-full ${
-            project.imageFit === 'contain' ? 'object-contain' : 'object-cover object-top'
+            project.imageFit === 'contain' ? 'object-contain' : 'object-cover'
           }`}
+          style={{
+            objectPosition:
+              project.imagePosition ?? (project.imageFit === 'contain' ? 'center' : 'center top'),
+          }}
         />
         {project.imageFit !== 'contain' && (
           <div
