@@ -42,7 +42,7 @@ export const projects: Project[] = [
     tags: ['Next.js', 'React', 'Resend', 'Liquid', 'Turso', 'TypeScript'],
     href: 'https://send-studio.vercel.app/',
     github: 'https://github.com/leovenom/send-studio',
-    image: '/send-studio-crm.png',
+    image: 'https://send-studio.vercel.app/opengraph-image',
     featured: false,
     accent: 'copper',
   },
