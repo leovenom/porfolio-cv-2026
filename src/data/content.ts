@@ -32,6 +32,21 @@ export type Experience = {
 
 export const projects: Project[] = [
   {
+    id: 'send-studio-crm',
+    title: 'Send Studio',
+    subtitle: 'Multi-channel CRM',
+    description:
+      'Portfolio CRM that closes the loop from template design to delivery metrics on Resend. Drag-and-drop block editor with Liquid and locale per contact, CRM with CSV import, email/WhatsApp/Telegram campaigns, and webhook-driven analytics with human vs bot opens.',
+    year: '2026',
+    metric: 'Webhook-driven analytics',
+    tags: ['Next.js', 'React', 'Resend', 'Liquid', 'Turso', 'TypeScript'],
+    href: 'https://send-studio.vercel.app/',
+    github: 'https://github.com/leovenom/send-studio',
+    image: '/send-studio-crm.png',
+    featured: false,
+    accent: 'copper',
+  },
+  {
     id: 'sinalverde',
     title: 'SinalVerde',
     subtitle: 'Product · ATS CV personalization',
@@ -44,21 +59,6 @@ export const projects: Project[] = [
     image: 'https://www.sinalverde.cv/images/og-image.png',
     featured: true,
     accent: 'sage',
-  },
-  {
-    id: 'send-studio-crm',
-    title: 'Send Studio',
-    subtitle: 'Personal · Multi-channel CRM on Resend',
-    description:
-      'Portfolio CRM that closes the loop from template design to delivery metrics on Resend. Drag-and-drop block editor with Liquid and locale per contact, CRM with CSV import, email/WhatsApp/Telegram campaigns, and webhook-driven analytics with human vs bot opens.',
-    year: '2026',
-    metric: 'Webhook-driven analytics',
-    tags: ['Next.js', 'React', 'Resend', 'Liquid', 'Turso', 'TypeScript'],
-    href: 'https://send-studio.vercel.app/',
-    github: 'https://github.com/leovenom/send-studio',
-    image: 'https://raw.githubusercontent.com/leovenom/send-studio/main/public/screenshots/analytics.png',
-    featured: false,
-    accent: 'copper',
   },
   {
     id: 'prezi-pipeline',

@@ -174,7 +174,7 @@ export const variants: PortfolioVariant[] = [
         tags: ['AI image generation', 'Ad creative', 'Performance'],
       },
       'send-studio-crm': {
-        subtitle: 'Personal · Lifecycle CRM on Resend',
+        subtitle: 'Multi-channel CRM',
         description:
           'End-to-end CRM for operators who live in email: block editor with Liquid and locale per contact, CSV import, multi-channel campaigns (email via Resend, WhatsApp, Telegram), and analytics fed by signed webhooks — including human vs bot open classification.',
         metric: 'Human vs bot opens',
