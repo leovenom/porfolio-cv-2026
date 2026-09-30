@@ -33,6 +33,36 @@ export type Experience = {
 
 export const projects: Project[] = [
   {
+    id: 'megg',
+    title: 'Megg',
+    subtitle: 'Product · Boiled-egg timer PWA',
+    description:
+      'Mobile-first timer for the perfect soft or hard-boiled egg. Pick size, fridge vs room temperature, and yolk doneness; cook time comes from a weight and temperature model. Portuguese, English, and German, with PWA install and lock-screen alarm.',
+    year: '2026',
+    metric: 'PT · EN · DE',
+    tags: ['Next.js', 'React', 'Tailwind CSS', 'Motion', 'PWA'],
+    href: 'https://megg-zeta.vercel.app/',
+    image: 'https://megg-zeta.vercel.app/opengraph-image',
+    imagePosition: '35% top',
+    featured: false,
+    accent: 'sage',
+  },
+  {
+    id: 'franklyn',
+    title: 'Franklyn',
+    subtitle: 'Consulting · Franchise readiness',
+    description:
+      'Marketing site for franchise consulting across Brazil and EU (PT/ES). Publishes real readiness scores, including low scores clients would hide, plus tiered Light and Standard packages and five fictional case studies from diagnosis to verdict.',
+    year: '2026',
+    metric: 'Scores from 38/70',
+    tags: ['Next.js', 'React', 'Tailwind CSS', 'Motion', 'i18n'],
+    href: 'https://franklyn-web-eight.vercel.app/',
+    image: 'https://franklyn-web-eight.vercel.app/opengraph-image',
+    imagePosition: '35% top',
+    featured: false,
+    accent: 'neutral',
+  },
+  {
     id: 'send-studio-crm',
     title: 'Send Studio',
     subtitle: 'Multi-channel CRM',
