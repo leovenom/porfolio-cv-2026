@@ -33,6 +33,21 @@ export type Experience = {
 
 export const projects: Project[] = [
   {
+    id: 'button-wall',
+    title: 'The Button Wall',
+    subtitle: 'Product · Million-pixel CTA wall',
+    description:
+      'A 1,000×1,000 px wall where every rented patch is a real clickable button with custom text, colors, and outbound link. Pick a free spot on a 10×10 grid, pay via Stripe, human review before go-live, click analytics on a private manage page.',
+    year: '2026',
+    metric: 'From €10 / 30 days',
+    tags: ['Stripe', 'Product UI', 'Payments', 'Canvas'],
+    href: 'https://thebuttonwall.com/',
+    image: 'https://thebuttonwall.com/og/home.png',
+    imagePosition: '35% top',
+    featured: false,
+    accent: 'copper',
+  },
+  {
     id: 'megg',
     title: 'Megg',
     subtitle: 'Product · Boiled-egg timer PWA',
