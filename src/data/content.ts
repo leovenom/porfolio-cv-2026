@@ -33,6 +33,21 @@ export type Experience = {
 
 export const projects: Project[] = [
   {
+    id: 'choi-store',
+    title: 'CHOI',
+    subtitle: 'Product · DTC storefront',
+    description:
+      'Marketing and shop for a post-workout spray aimed at people who really sweat. Product range, where-to-use guide, FAQ, and pack pricing in a mobile-first layout with a clear product story: two ingredients, odour control, clearer-looking skin.',
+    year: '2026',
+    metric: '2 ingredients',
+    tags: ['Next.js', 'React', 'Product UI', 'E-commerce', 'Netlify'],
+    href: 'https://choi-store.netlify.app/',
+    image: 'https://choi-store.netlify.app/opengraph-image',
+    imagePosition: '35% top',
+    featured: false,
+    accent: 'sage',
+  },
+  {
     id: 'button-wall',
     title: 'The Button Wall',
     subtitle: "The internet's billboard of buttons.",
@@ -76,21 +91,6 @@ export const projects: Project[] = [
     imagePosition: '35% top',
     featured: false,
     accent: 'neutral',
-  },
-  {
-    id: 'choi-store',
-    title: 'CHOI',
-    subtitle: 'Product · DTC storefront',
-    description:
-      'Marketing and shop for a post-workout spray aimed at people who really sweat. Product range, where-to-use guide, FAQ, and pack pricing in a mobile-first layout with a clear product story: two ingredients, odour control, clearer-looking skin.',
-    year: '2026',
-    metric: '2 ingredients',
-    tags: ['Next.js', 'React', 'Product UI', 'E-commerce', 'Netlify'],
-    href: 'https://choi-store.netlify.app/',
-    image: 'https://choi-store.netlify.app/opengraph-image',
-    imagePosition: '35% top',
-    featured: false,
-    accent: 'sage',
   },
   {
     id: 'send-studio-crm',
